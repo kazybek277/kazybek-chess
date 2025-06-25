@@ -18,6 +18,7 @@ const Header = () => {
     { key: 'nav.services', href: '/services' },
     { key: 'nav.reviews', href: '/reviews' },
     { key: 'nav.requirements', href: '/requirements' },
+    { key: 'nav.contacts', href: '/contacts' },
   ];
 
   const isActive = (href: string) => {

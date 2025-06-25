@@ -3,24 +3,18 @@ import React from 'react';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import Stats from '@/components/Stats';
-import Advantages from '@/components/Advantages';
-import ContactForm from '@/components/ContactForm';
+import ContactsPageContent from '@/components/ContactsPageContent';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const Contacts = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <div className="min-h-screen bg-background">
           <Header />
-          <main>
-            <Hero />
-            <Stats />
-            <Advantages />
+          <main className="pt-16">
+            <ContactsPageContent />
           </main>
-          <ContactForm />
           <Footer />
         </div>
       </LanguageProvider>
@@ -28,4 +22,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Contacts;

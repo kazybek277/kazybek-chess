@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
 import TrainersSection from '@/components/TrainersSection';
 import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
 
 const About = () => {
   return (
@@ -16,6 +17,7 @@ const About = () => {
             <TrainersSection />
           </main>
           <ContactForm />
+          <Footer />
         </div>
       </LanguageProvider>
     </ThemeProvider>

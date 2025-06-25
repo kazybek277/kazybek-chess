@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
 import RequirementsPageContent from '@/components/RequirementsPageContent';
 import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
 
 const RequirementsPage = () => {
   return (
@@ -16,6 +17,7 @@ const RequirementsPage = () => {
             <RequirementsPageContent />
           </main>
           <ContactForm />
+          <Footer />
         </div>
       </LanguageProvider>
     </ThemeProvider>

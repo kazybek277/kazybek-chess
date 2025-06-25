@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
 import ReviewsSection from '@/components/ReviewsSection';
+import Footer from '@/components/Footer';
 
 const Reviews = () => {
   return (
@@ -14,6 +15,7 @@ const Reviews = () => {
           <main className="pt-16">
             <ReviewsSection />
           </main>
+          <Footer />
         </div>
       </LanguageProvider>
     </ThemeProvider>
