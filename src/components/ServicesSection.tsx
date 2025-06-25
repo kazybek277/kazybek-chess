@@ -1,8 +1,10 @@
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Check, Clock, Users } from 'lucide-react';
+import { Clock, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import TrainerSelector from './TrainerSelector';
+import TrainerInfo from './TrainerInfo';
+import ServicesGrid from './ServicesGrid';
 
 const ServicesSection = () => {
   const { t } = useLanguage();
@@ -127,94 +129,19 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Trainer Selection */}
-        <div className="flex justify-center mb-8">
-          <div className="flex bg-background rounded-lg p-1 border border-border">
-            {trainers.map((trainer) => (
-              <button
-                key={trainer.id}
-                onClick={() => setSelectedTrainer(trainer.id)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  selectedTrainer === trainer.id
-                    ? 'bg-yellow-500 text-black'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                {trainer.name}
-              </button>
-            ))}
-          </div>
-        </div>
+        <TrainerSelector
+          trainers={trainers}
+          selectedTrainer={selectedTrainer}
+          onTrainerSelect={setSelectedTrainer}
+        />
 
-        {/* Trainer Info */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-foreground mb-2">
-            {currentTrainer.name}
-          </h3>
-          <p className="text-yellow-500 font-semibold mb-2">
-            {currentTrainer.title}
-          </p>
-          <p className="text-muted-foreground">
-            {currentTrainer.description}
-          </p>
-        </div>
+        <TrainerInfo
+          name={currentTrainer.name}
+          title={currentTrainer.title}
+          description={currentTrainer.description}
+        />
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {currentTrainer.services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <div
-                key={index}
-                className={`relative p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-lg ${
-                  service.popular
-                    ? 'border-yellow-500 bg-yellow-500/5'
-                    : 'border-border bg-background'
-                }`}
-              >
-                {service.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-semibold">
-                      Популярно
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-6 h-6 text-yellow-500" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">
-                    {service.type}
-                  </h4>
-                  <div className="text-3xl font-bold text-foreground mb-1">
-                    {service.price} ₸
-                  </div>
-                  <div className="text-muted-foreground text-sm flex items-center justify-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {service.duration}
-                  </div>
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm">
-                      <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
-                  onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
-                >
-                  {t('services.signup')}
-                </Button>
-              </div>
-            );
-          })}
-        </div>
+        <ServicesGrid services={currentTrainer.services} />
       </div>
     </section>
   );
