@@ -16,26 +16,27 @@ const translations = {
     'nav.about': 'О нас',
     'nav.services': 'Услуги',
     'nav.reviews': 'Отзывы',
+    'nav.requirements': 'Что нужно',
     'nav.contacts': 'Контакты',
     
     // Hero section
-    'hero.title': 'Шахматная академия Kazybek Chess',
-    'hero.subtitle': 'Тренеры с международным опытом, авторская методика, онлайн-занятия',
+    'hero.title': 'Обучение шахмат онлайн с FM Казыбек',
+    'hero.subtitle': 'Персональные уроки шахмат по Google Meet и Microsoft Teams. FM Kazybek из Казахстана предлагает профессиональное обучение шахмат онлайн для детей и взрослых.',
     'hero.cta': 'Записаться на урок',
     
     // Stats
     'stats.students': 'учеников',
-    'stats.tournaments': 'международных турниров',
-    'stats.trainers': 'профессиональных тренера',
-    'stats.experience': 'лет игрового опыта',
+    'stats.tournaments': 'турниров',
+    'stats.trainers': 'тренера',
+    'stats.experience': 'лет опыта',
     'stats.teaching': 'лет преподавания',
     
     // Advantages
     'advantages.title': 'Наши преимущества',
     'advantages.individual': 'Индивидуальный подход',
-    'advantages.growth': 'Быстрый рост уровня игры',
-    'advantages.thinking': 'Развитие стратегического мышления',
-    'advantages.tournaments': 'Подготовка к турнирам любого уровня',
+    'advantages.growth': 'Подготовка к турнирам',
+    'advantages.thinking': 'Стратегическое мышление',
+    'advantages.tournaments': 'Опытные тренеры',
     
     // Requirements
     'requirements.title': 'Что нужно для занятий',
@@ -74,16 +75,20 @@ const translations = {
     'services.price': '₸ / 60 мин',
     'services.signup': 'Записаться',
     
+    // Reviews
+    'reviews.title': 'Отзывы учеников',
+    'reviews.subtitle': 'Мнения родителей и учеников о качестве обучения и результатах занятий',
+    'reviews.stats.rating': 'Средняя оценка',
+    'reviews.stats.total': 'Всего отзывов',
+    'reviews.stats.recommend': 'Рекомендуют',
+    'reviews.stats.active': 'Активных учеников',
+    
     // Contact form
     'contact.title': 'Задать вопрос',
     'contact.name': 'Имя',
     'contact.question': 'Вопрос',
     'contact.telegram': 'Telegram',
     'contact.send': 'Отправить',
-    
-    // Reviews
-    'reviews.title': 'Отзывы',
-    'reviews.choose': 'Выберите тренера:',
     
     // Footer
     'footer.links': 'Быстрые ссылки',
@@ -97,26 +102,27 @@ const translations = {
     'nav.about': 'About',
     'nav.services': 'Services',
     'nav.reviews': 'Reviews',
+    'nav.requirements': 'Requirements',
     'nav.contacts': 'Contacts',
     
     // Hero section
-    'hero.title': 'Kazybek Chess Academy',
-    'hero.subtitle': 'International experienced trainers, original methodology, online lessons',
+    'hero.title': 'Online Chess Training with FM Kazybek',
+    'hero.subtitle': 'Personal chess lessons via Google Meet and Microsoft Teams. FM Kazybek from Kazakhstan offers professional online chess training for children and adults.',
     'hero.cta': 'Book a lesson',
     
     // Stats
     'stats.students': 'students',
-    'stats.tournaments': 'international tournaments',
-    'stats.trainers': 'professional trainers',
-    'stats.experience': 'years of playing experience',
+    'stats.tournaments': 'tournaments',
+    'stats.trainers': 'trainers',
+    'stats.experience': 'years of experience',
     'stats.teaching': 'years of teaching',
     
     // Advantages
     'advantages.title': 'Our advantages',
     'advantages.individual': 'Individual approach',
-    'advantages.growth': 'Rapid skill improvement',
-    'advantages.thinking': 'Strategic thinking development',
-    'advantages.tournaments': 'Tournament preparation at any level',
+    'advantages.growth': 'Tournament preparation',
+    'advantages.thinking': 'Strategic thinking',
+    'advantages.tournaments': 'Experienced trainers',
     
     // Requirements
     'requirements.title': 'What you need to start',
@@ -155,16 +161,20 @@ const translations = {
     'services.price': '₸ / 60 min',
     'services.signup': 'Sign up',
     
+    // Reviews
+    'reviews.title': 'Student Reviews',
+    'reviews.subtitle': 'Opinions of parents and students about the quality of education and lesson results',
+    'reviews.stats.rating': 'Average rating',
+    'reviews.stats.total': 'Total reviews',
+    'reviews.stats.recommend': 'Recommend',
+    'reviews.stats.active': 'Active students',
+    
     // Contact form
     'contact.title': 'Ask a question',
     'contact.name': 'Name',
     'contact.question': 'Question',
     'contact.telegram': 'Telegram',
     'contact.send': 'Send',
-    
-    // Reviews
-    'reviews.title': 'Reviews',
-    'reviews.choose': 'Choose trainer:',
     
     // Footer
     'footer.links': 'Quick links',

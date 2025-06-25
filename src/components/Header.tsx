@@ -11,10 +11,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { key: 'nav.home', href: '#home' },
-    { key: 'nav.about', href: '#about' },
-    { key: 'nav.services', href: '#services' },
-    { key: 'nav.reviews', href: '#reviews' },
+    { key: 'nav.home', href: '/' },
+    { key: 'nav.about', href: '/#about' },
+    { key: 'nav.services', href: '/#services' },
+    { key: 'nav.reviews', href: '/reviews' },
+    { key: 'nav.requirements', href: '/requirements' },
   ];
 
   return (
