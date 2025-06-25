@@ -4,26 +4,34 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
     { key: 'nav.home', href: '/' },
-    { key: 'nav.about', href: '/#about' },
-    { key: 'nav.services', href: '/#services' },
+    { key: 'nav.about', href: '/about' },
+    { key: 'nav.services', href: '/services' },
     { key: 'nav.reviews', href: '/reviews' },
     { key: 'nav.requirements', href: '/requirements' },
   ];
+
+  const isActive = (href: string) => {
+    if (href === '/' && location.pathname === '/') return true;
+    if (href !== '/' && location.pathname === href) return true;
+    return false;
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
               <span className="text-black font-bold text-lg">♔</span>
             </div>
@@ -31,18 +39,22 @@ const Header = () => {
               <span className="font-bold text-lg">Kazybek</span>
               <span className="text-xs text-muted-foreground">Chess</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.key}
-                href={item.href}
-                className="text-foreground hover:text-yellow-500 transition-colors duration-200 font-medium"
+                to={item.href}
+                className={`font-medium transition-colors duration-200 ${
+                  isActive(item.href)
+                    ? 'text-yellow-500'
+                    : 'text-foreground hover:text-yellow-500'
+                }`}
               >
                 {t(item.key)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -107,14 +119,18 @@ const Header = () => {
           <div className="md:hidden border-t border-border">
             <nav className="py-4 space-y-2">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.key}
-                  href={item.href}
-                  className="block px-4 py-2 text-foreground hover:text-yellow-500 hover:bg-muted rounded-md transition-colors duration-200"
+                  to={item.href}
+                  className={`block px-4 py-2 rounded-md transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-yellow-500 bg-muted'
+                      : 'text-foreground hover:text-yellow-500 hover:bg-muted'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t(item.key)}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

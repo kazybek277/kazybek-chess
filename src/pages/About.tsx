@@ -3,21 +3,17 @@ import React from 'react';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import Stats from '@/components/Stats';
-import Advantages from '@/components/Advantages';
+import TrainersSection from '@/components/TrainersSection';
 import ContactForm from '@/components/ContactForm';
 
-const Index = () => {
+const About = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <div className="min-h-screen bg-background">
           <Header />
-          <main>
-            <Hero />
-            <Stats />
-            <Advantages />
+          <main className="pt-16">
+            <TrainersSection />
           </main>
           <ContactForm />
         </div>
@@ -26,4 +22,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default About;
