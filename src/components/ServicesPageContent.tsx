@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Check, X, Users, Clock, Target, ExternalLink } from 'lucide-react';
+import { Check, X, Users, Clock, Target, ExternalLink, Star } from 'lucide-react';
 
 const ServicesPageContent = () => {
   const { t } = useLanguage();
@@ -29,23 +29,25 @@ const ServicesPageContent = () => {
   };
 
   const serviceFeatures = [
-    { key: 'consultation', ru: 'Консультация', en: 'Consultation' },
+    { key: 'intensive', ru: 'Интенсивные тренировки', en: 'Intensive training' },
+    { key: 'consultation', ru: 'Консультация по интересующим темам', en: 'Consultation on topics of interest' },
     { key: 'reschedule', ru: 'Перенос занятий до 3 ч (в мес)', en: 'Reschedule up to 3h (per month)' },
     { key: 'cancel', ru: 'Отмена занятий до 3 ч (в мес)', en: 'Cancel up to 3h (per month)' },
     { key: 'analysis', ru: 'Анализ партий', en: 'Game analysis' },
     { key: 'openings', ru: 'Дебютный репертуар', en: 'Opening repertoire' },
-    { key: 'studios', ru: 'Студии (ограничение)', en: 'Studios (limit)' },
+    { key: 'studios', ru: 'Количество допустимых студий', en: 'Number of allowed studios' },
     { key: 'homework', ru: 'Домашнее задание + проверка (во время урока)', en: 'Homework + check (during lesson)' },
-    { key: 'precheck', ru: 'Проверка до урока', en: 'Pre-lesson check' },
-    { key: 'bot', ru: 'Бот для отработки', en: 'Practice bot' },
+    { key: 'precheck', ru: 'Проверка домашнего задания до урока', en: 'Homework check before lesson' },
+    { key: 'bot', ru: 'Бот для отработки вариантов', en: 'Bot for practicing variants' },
     { key: 'progress', ru: 'Отслеживание прогресса', en: 'Progress tracking' },
-    { key: 'reminders', ru: 'Напоминание', en: 'Reminders' },
-    { key: 'parent', ru: 'Присутствие опекуна на уроке', en: 'Guardian presence' },
-    { key: 'selfdev', ru: 'План саморазвития', en: 'Self-development plan' },
+    { key: 'reminders', ru: 'Напоминание об уроке', en: 'Lesson reminders' },
+    { key: 'parent', ru: 'Присутствие опекуна-родителя на уроке', en: 'Guardian-parent presence' },
+    { key: 'selfdev', ru: 'Индивидуальный план саморазвития', en: 'Individual self-development plan' },
     { key: 'shortvideo', ru: 'Короткое видео до 1.5 мин', en: 'Short video up to 1.5 min' },
     { key: 'longvideo', ru: 'Длинное видео до 10 мин', en: 'Long video up to 10 min' },
     { key: 'guarantee', ru: 'Гарантия результата', en: 'Result guarantee' },
-    { key: 'discount', ru: 'Скидка при всех посещениях', en: 'Attendance discount' }
+    { key: 'discount', ru: 'Скидка при всех посещениях', en: 'Attendance discount' },
+    { key: 'effectiveness', ru: 'Результативность', en: 'Effectiveness' }
   ];
 
   const plans = [
@@ -56,25 +58,27 @@ const ServicesPageContent = () => {
     { key: 'extreme', ru: 'Экстремальный', en: 'Extreme' }
   ];
 
-  // Corrected plan features based on your specifications
+  // Updated plan features based on requirements
   const planFeatures = {
+    intensive: ['✅', '✅', '✅', '✅', '✅'],
     consultation: ['✅', '✅', '✅', '✅', '✅'],
     reschedule: ['max 2', 'max 4', 'max 6', 'max 12', 'max 18'],
     cancel: ['❌', 'max 1', 'max 2', 'max 3', 'max 5'],
     analysis: ['✅', '✅', '✅', '✅', '✅'],
     openings: ['Базовый', 'Расширенный', 'Полный', 'Полный + доп', 'Полный + доп'],
     studios: ['3', '5', '7', '10', '10'],
-    homework: ['❌', '✅', '✅', '✅', '✅'],
-    precheck: ['❌', '❌', '✅', '✅', '✅'],
+    homework: ['✅', '✅', '✅', '✅', '✅'],
+    precheck: ['❌', '❌', '❌', '✅', '✅'],
     bot: ['❌', '❌', '✅', '✅', '✅'],
     progress: ['❌', '❌', '✅', '✅', '✅'],
-    reminders: ['✅', '✅', '✅', '✅', '✅'],
-    parent: ['❌', '✅', '✅', '✅', '✅'],
+    reminders: ['❌', '❌', '❌', '✅', '✅'],
+    parent: ['❌', '❌', '❌', '✅', '✅'],
     selfdev: ['❌', '❌', '✅', '✅', '✅'],
-    shortvideo: ['❌', '❌', '✅', '✅', '✅'],
-    longvideo: ['❌', '❌', '❌', '✅', '✅'],
-    guarantee: ['❌', '❌', '✅', '✅', '✅'],
-    discount: ['0%', '0%', '5%', '7.5%', '10%']
+    shortvideo: ['❌', '❌', '❌', '✅', '✅'],
+    longvideo: ['❌', '❌', '❌', '❌', '✅'],
+    guarantee: ['❌', '❌', '❌', '✅', '✅'],
+    discount: ['0%', '0%', '5%', '7.5%', '10%'],
+    effectiveness: ['⭐', '⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐']
   };
 
   const trainers = [
@@ -118,7 +122,7 @@ const ServicesPageContent = () => {
       services: [
         {
           title: t('services.individual'),
-          basePriceUSD: 18.75,
+          basePriceUSD: 22.5, // Updated price: 1800₽ / 80 = 22.5 USD
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users,
@@ -172,6 +176,12 @@ const ServicesPageContent = () => {
       ]
     }
   ];
+
+  const renderStars = (count: number) => {
+    return Array.from({ length: count }, (_, i) => (
+      <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500 inline" />
+    ));
+  };
 
   return (
     <section className="py-16 bg-background">
@@ -284,12 +294,20 @@ const ServicesPageContent = () => {
 
               {/* Pricing Table */}
               <div className="bg-muted/30 rounded-lg p-6">
-                <h3 className="text-2xl font-bold text-center mb-6">{t('services.plans')}</h3>
+                <h3 className="text-2xl font-bold text-center mb-2">{t('services.plans')}</h3>
+                <p className="text-center text-muted-foreground mb-6">
+                  {t('nav.language') === 'ru' 
+                    ? 'Чем больше занятий в неделю, тем больше возможностей для развития' 
+                    : 'The more lessons per week, the more opportunities for development'
+                  }
+                </p>
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
                       <TableRow className="bg-muted/50">
-                        <TableHead className="w-[200px] font-bold">{t('nav.language') === 'ru' ? 'Услуга' : 'Service'}</TableHead>
+                        <TableHead className="w-[200px] font-bold">
+                          {t('nav.language') === 'ru' ? 'Услуги / Количество занятий' : 'Services / Number of lessons'}
+                        </TableHead>
                         {plans.map((plan) => (
                           <TableHead key={plan.key} className="text-center min-w-[120px] font-bold">
                             {t('nav.language') === 'ru' ? plan.ru : plan.en}
@@ -309,6 +327,12 @@ const ServicesPageContent = () => {
                                 <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : value === '❌' ? (
                                 <X className="w-4 h-4 text-red-500 mx-auto" />
+                              ) : feature.key === 'effectiveness' ? (
+                                <div className="flex justify-center">
+                                  {value.split('').map((star, starIndex) => (
+                                    <Star key={starIndex} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                                  ))}
+                                </div>
                               ) : (
                                 <span className="text-sm font-medium">{value}</span>
                               )}

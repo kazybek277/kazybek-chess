@@ -59,7 +59,16 @@ const TrainersSection = () => {
         t('trainers.amir.achievements.world'),
         t('trainers.amir.achievements.experience'),
         t('trainers.amir.achievements.teaching'),
-        t('trainers.amir.achievements.students')
+        t('trainers.amir.achievements.students'),
+        // New achievements
+        t('trainers.amir.achievements.education'),
+        t('trainers.amir.achievements.student_success'),
+        t('trainers.amir.achievements.languages'),
+        t('trainers.amir.achievements.approach')
+      ],
+      education: [
+        t('trainers.amir.education.oxford'),
+        t('trainers.amir.education.aston')
       ],
       specialization: [
         t('trainers.amir.specialization.group'),
@@ -200,6 +209,23 @@ const TrainersSection = () => {
                   </div>
                 </div>
 
+                {/* Education section for Amir */}
+                {trainer.education && (
+                  <div>
+                    <h4 className="font-bold mb-3 text-foreground flex items-center">
+                      🎓 <span className="ml-2">{t('nav.language') === 'ru' ? 'Образование' : 'Education'}</span>
+                    </h4>
+                    <div className="space-y-2">
+                      {trainer.education.map((edu, eduIndex) => (
+                        <div key={eduIndex} className="flex items-start text-sm">
+                          <div className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 bg-blue-500" />
+                          <span className="text-muted-foreground leading-relaxed">{edu}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Specialization */}
                 <div>
                   <h4 className="font-bold mb-3 text-foreground flex items-center">
@@ -274,6 +300,28 @@ const TrainersSection = () => {
               onClick={() => window.open('https://t.me/Kazybek_Umbetov_Chess_Bot', '_blank')}
             >
               🤖 {t('trainers.botButton')}
+            </Button>
+          </div>
+        </div>
+
+        {/* Telegram Channel Section */}
+        <div className="mt-8 text-center">
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg p-6">
+            <h3 className="text-xl font-bold mb-2">
+              📢 {t('nav.language') === 'ru' ? 'Подписывайтесь на наш Telegram-канал!' : 'Subscribe to our Telegram channel!'}
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              {t('nav.language') === 'ru' 
+                ? 'Будьте в курсе новостей и обновлений' 
+                : 'Stay updated with news and updates'
+              }
+            </p>
+            <Button
+              variant="outline"
+              className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+              onClick={() => window.open('https://t.me/kazybek_chess', '_blank')}
+            >
+              📱 {t('nav.language') === 'ru' ? 'Подписаться' : 'Subscribe'}
             </Button>
           </div>
         </div>

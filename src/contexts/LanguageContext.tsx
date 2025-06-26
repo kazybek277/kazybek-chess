@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'ru' | 'en';
@@ -36,6 +35,7 @@ const translations = {
     'contact.question': 'Ваш вопрос',
     'contact.telegram': 'Telegram или WhatsApp',
     'contact.send': 'Отправить',
+    'contact.email': 'kazybekumbetov@gmail.com',
     
     // Reviews
     'reviews.title': 'Отзывы учеников',
@@ -199,6 +199,7 @@ const translations = {
     'contact.question': 'Your question',
     'contact.telegram': 'Telegram or WhatsApp',
     'contact.send': 'Send',
+    'contact.email': 'kazybekumbetov@gmail.com',
     
     // Reviews
     'reviews.title': 'Student Reviews',

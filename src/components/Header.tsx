@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -11,6 +11,19 @@ const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+
+  // Persist language selection in localStorage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('preferred-language');
+    if (savedLanguage && (savedLanguage === 'ru' || savedLanguage === 'en')) {
+      setLanguage(savedLanguage as 'ru' | 'en');
+    }
+  }, [setLanguage]);
+
+  const handleLanguageChange = (lang: 'ru' | 'en') => {
+    setLanguage(lang);
+    localStorage.setItem('preferred-language', lang);
+  };
 
   const navigation = [
     { key: 'nav.home', href: '/' },
@@ -33,8 +46,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
-              <span className="text-black font-bold text-lg">♔</span>
+            <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center shadow-lg">
+              <img 
+                src="/lovable-uploads/7202d21f-e13d-4eba-81fb-864386d3a11f.png" 
+                alt="Kazybek Chess" 
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg">Umbetov Kazybek</span>
@@ -64,7 +81,7 @@ const Header = () => {
             {/* Language Switcher */}
             <div className="flex items-center space-x-1 bg-muted rounded-md p-1">
               <button
-                onClick={() => setLanguage('ru')}
+                onClick={() => handleLanguageChange('ru')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   language === 'ru' 
                     ? 'bg-background text-foreground shadow-sm' 
@@ -74,7 +91,7 @@ const Header = () => {
                 RU
               </button>
               <button
-                onClick={() => setLanguage('en')}
+                onClick={() => handleLanguageChange('en')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   language === 'en' 
                     ? 'bg-background text-foreground shadow-sm' 
