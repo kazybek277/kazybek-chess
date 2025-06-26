@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Check, X, Users, Clock, Target } from 'lucide-react';
+import { Check, X, Users, Clock, Target, ExternalLink } from 'lucide-react';
 
 const ServicesPageContent = () => {
   const { t } = useLanguage();
@@ -57,6 +57,7 @@ const ServicesPageContent = () => {
     { key: 'intensive+', ru: 'Интенсив+ (6-7/нед)', en: 'Intensive+ (6-7/week)' }
   ];
 
+  // Corrected plan features based on the original table
   const planFeatures = {
     consultation: ['✅', '✅', '✅', '✅', '✅', '✅'],
     reschedule: ['✗', 'max 2', 'max 4', 'max 6', 'max 12', 'max 18'],
@@ -81,24 +82,26 @@ const ServicesPageContent = () => {
     {
       id: 'kazybek',
       name: 'Казыбек',
+      avatar: '👑',
+      title: 'FM',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          basePriceUSD: 37.5, // 3000₽ / 80
+          title: t('services.individual'),
+          basePriceUSD: 37.5,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
-          title: 'Групповые занятия',
-          basePriceUSD: 12.5, // 1000₽ / 80
+          title: t('services.group'),
+          basePriceUSD: 12.5,
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
-          title: 'Занятия в паре',
-          basePriceUSD: 25, // 2000₽ / 80
+          title: t('services.pair'),
+          basePriceUSD: 25,
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -108,24 +111,26 @@ const ServicesPageContent = () => {
     {
       id: 'amir',
       name: 'Амир',
+      avatar: '🎯',
+      title: 'КМС',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          basePriceUSD: 18.75, // 1500₽ / 80
+          title: t('services.individual'),
+          basePriceUSD: 18.75,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
-          title: 'Групповые занятия',
-          basePriceUSD: 7.5, // 600₽ / 80
+          title: t('services.group'),
+          basePriceUSD: 7.5,
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
-          title: 'Занятия в паре',
-          basePriceUSD: 11.25, // 900₽ / 80
+          title: t('services.pair'),
+          basePriceUSD: 11.25,
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -135,24 +140,26 @@ const ServicesPageContent = () => {
     {
       id: 'tamerlan',
       name: 'Тамерлан',
+      avatar: '⚡',
+      title: 'КМС',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          basePriceUSD: 18.75, // 1500₽ / 80
+          title: t('services.individual'),
+          basePriceUSD: 18.75,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
-          title: 'Групповые занятия',
-          basePriceUSD: 7.5, // 600₽ / 80
+          title: t('services.group'),
+          basePriceUSD: 7.5,
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
-          title: 'Занятия в паре',
-          basePriceUSD: 11.25, // 900₽ / 80
+          title: t('services.pair'),
+          basePriceUSD: 11.25,
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -166,17 +173,17 @@ const ServicesPageContent = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Услуги
+            {t('services.title')}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Выберите формат обучения, который подходит именно вам. Все программы адаптируются под ваш уровень и цели.
+            {t('services.subtitle')}
           </p>
         </div>
 
         {/* Controls */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">Валюта:</span>
+            <span className="text-sm font-medium text-muted-foreground">{t('services.currency')}:</span>
             <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
               <SelectTrigger className="w-24">
                 <SelectValue />
@@ -193,18 +200,31 @@ const ServicesPageContent = () => {
         </div>
 
         <Tabs defaultValue="kazybek" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="kazybek">Казыбек</TabsTrigger>
-            <TabsTrigger value="amir">Амир</TabsTrigger>
-            <TabsTrigger value="tamerlan">Тамерлан</TabsTrigger>
-          </TabsList>
+          {/* Enhanced Trainer Selector */}
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid w-full max-w-md grid-cols-3 h-auto p-2">
+              {trainers.map((trainer) => (
+                <TabsTrigger
+                  key={trainer.id}
+                  value={trainer.id}
+                  className="flex flex-col items-center p-4 space-y-2 data-[state=active]:bg-yellow-500 data-[state=active]:text-black hover:scale-105 transition-all duration-200"
+                >
+                  <div className="text-2xl">{trainer.avatar}</div>
+                  <div className="text-center">
+                    <div className="font-semibold">{trainer.name}</div>
+                    <div className="text-xs opacity-70">{trainer.title}</div>
+                  </div>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {trainers.map((trainer) => (
             <TabsContent key={trainer.id} value={trainer.id} className="space-y-8">
               {/* Service Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {trainer.services.map((service, index) => (
-                  <Card key={index} className="border-2 hover:shadow-lg transition-shadow">
+                  <Card key={index} className="border-2 hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
                     <CardHeader className="text-center">
                       <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <service.icon className="w-6 h-6 text-yellow-500" />
@@ -231,7 +251,7 @@ const ServicesPageContent = () => {
                         className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
                         onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
                       >
-                        Записаться
+                        {t('services.bookLesson')}
                       </Button>
                     </CardContent>
                   </Card>
@@ -240,31 +260,31 @@ const ServicesPageContent = () => {
 
               {/* Pricing Table */}
               <div className="bg-muted/30 rounded-lg p-6">
-                <h3 className="text-2xl font-bold text-center mb-6">Тарифные планы</h3>
+                <h3 className="text-2xl font-bold text-center mb-6">{t('services.plans')}</h3>
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[200px]">Услуга</TableHead>
+                      <TableRow className="bg-muted/50">
+                        <TableHead className="w-[200px] font-bold">Услуга</TableHead>
                         {plans.map((plan) => (
-                          <TableHead key={plan.key} className="text-center min-w-[120px]">
+                          <TableHead key={plan.key} className="text-center min-w-[120px] font-bold">
                             {plan.ru}
                           </TableHead>
                         ))}
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {serviceFeatures.map((feature) => (
-                        <TableRow key={feature.key}>
+                      {serviceFeatures.map((feature, index) => (
+                        <TableRow key={feature.key} className={index % 2 === 0 ? 'bg-muted/20' : ''}>
                           <TableCell className="font-medium">{feature.ru}</TableCell>
-                          {planFeatures[feature.key].map((value, index) => (
-                            <TableCell key={index} className="text-center">
+                          {planFeatures[feature.key].map((value, cellIndex) => (
+                            <TableCell key={cellIndex} className="text-center">
                               {value === '✅' ? (
                                 <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : value === '✗' ? (
                                 <X className="w-4 h-4 text-red-500 mx-auto" />
                               ) : (
-                                <span className="text-sm">{value}</span>
+                                <span className="text-sm font-medium">{value}</span>
                               )}
                             </TableCell>
                           ))}

@@ -21,6 +21,13 @@ const translations = {
     'nav.requirements': 'Что нужно для занятий',
     'nav.contacts': 'Контакты',
     
+    // Hero Section
+    'hero.title': 'Обучение шахмат онлайн с FM Казыбек',
+    'hero.subtitle': 'Персональные уроки шахмат по Google Meet и Microsoft Teams',
+    'hero.description': 'FM Kazybek из Казахстана предлагает профессиональное обучение шахмат онлайн для детей и взрослых. Шахматные уроки онлайн с международным мастером FIDE.',
+    'hero.cta': 'Записаться на урок',
+    'hero.cta2': 'Узнать больше',
+    
     // Contact Form
     'contact.title': 'Задать вопрос',
     'contact.name': 'Ваше имя',
@@ -35,23 +42,77 @@ const translations = {
     'reviews.stats.total': 'Всего отзывов',
     'reviews.stats.recommend': 'Рекомендуют',
     'reviews.stats.active': 'Активных учеников',
+    'reviews.showMore': 'Показать ещё',
+    'reviews.details': 'Подробнее',
     
     // Services
-    'services.title': 'Наши услуги',
-    'services.subtitle': 'Выберите формат обучения, который подходит именно вам',
+    'services.title': 'Услуги',
+    'services.subtitle': 'Выберите формат обучения, который подходит именно вам. Все программы адаптируются под ваш уровень и цели.',
+    'services.currency': 'Валюта',
+    'services.bookLesson': 'Записаться',
+    'services.individual': 'Индивидуальные занятия',
+    'services.group': 'Групповые занятия',
+    'services.pair': 'Занятия в паре',
+    'services.plans': 'Тарифные планы',
+    
+    // Advantages
+    'advantages.title': 'Преимущества обучения шахмат онлайн',
+    'advantages.professional.title': 'Профессиональный подход к обучению шахматам',
+    'advantages.professional.desc': 'С акцентом на развитие стратегического мышления',
+    'advantages.individual.title': 'Индивидуальный подход',
+    'advantages.individual.desc': 'Персональные программы обучения шахмат онлайн для каждого ученика',
+    'advantages.experience.title': 'Опыт шахматного тренера FM',
+    'advantages.experience.desc': 'Более 7 лет обучения детей и взрослых шахматам с подтвержденным титулом FIDE Master',
+    'advantages.online.title': 'Уроки шахмат по Google Meet',
+    'advantages.online.desc': 'Гибкое расписание и удобные платформы для шахматных уроков онлайн',
+    
+    // Stats
+    'stats.students': 'учеников',
+    'stats.tournaments': 'международных турниров',
+    'stats.trainers': 'тренера',
+    'stats.experience': 'лет игрового опыта',
+    'stats.teaching': 'лет преподавания',
     
     // Trainers
     'trainers.title': 'О нашей команде тренеров',
     'trainers.subtitle': 'Профессиональная команда тренеров с международным опытом и проверенными результатами',
-    'trainers.umbet.name': 'Умбетов Казыбек',
-    'trainers.umbet.title': 'Главный тренер, FIDE Мастер',
-    'trainers.umbet.desc': 'Максимальный эффект и полное внимание тренера',
-    'trainers.amir.name': 'Сатыбалды Амир',
-    'trainers.amir.title': 'Старший тренер, КМС',
-    'trainers.amir.desc': 'До 4 человек: командная динамика и турнирная практика',
-    'trainers.tamerlan.name': 'Хасенов Тамерлан',
-    'trainers.tamerlan.title': 'Старший тренер, КМС',
-    'trainers.tamerlan.desc': 'Идеальный баланс внимания и стоимости'
+    'trainers.stats.students': 'обученных учеников (общая команда)',
+    'trainers.stats.experience': 'лет совокупного тренерского опыта',
+    'trainers.stats.tournaments': 'турниров с участием',
+    'trainers.stats.rating': 'средний рейтинг по отзывам студентов',
+    
+    // Requirements
+    'requirements.title': 'Что потребуется для шахматных занятий',
+    'requirements.computer': 'Компьютер с микрофоном',
+    'requirements.internet': 'Интернет, аккаунт Google или Microsoft',
+    'requirements.platform': 'Google Meet или Microsoft Teams',
+    'requirements.materials': 'Блокнот, ручка, доска (по желанию)',
+    'requirements.student': 'Ученик любого возраста',
+    
+    // Contacts
+    'contacts.title': 'Контакты',
+    'contacts.subtitle': 'Свяжитесь со мной для записи на занятия или получения консультации. Отвечаю быстро!',
+    'contacts.methods': 'Способы связи',
+    'contacts.whatsapp': 'Быстрые сообщения',
+    'contacts.telegram': 'Основной канал связи',
+    'contacts.telegramChannel': 'Наш Telegram-канал',
+    'contacts.channelDesc': 'Новости и обновления',
+    'contacts.email': 'Подробные вопросы',
+    'contacts.schedule': 'Время работы',
+    'contacts.scheduleTime': 'Понедельник — Воскресенье',
+    'contacts.format': 'Формат занятий',
+    'contacts.formatDesc': 'Занятия проводятся только онлайн',
+    'contacts.platforms': 'Через Google Meet или Microsoft Teams',
+    'contacts.profiles': 'Мои профили на шахматных платформах',
+    'contacts.lichess': 'Игровой профиль',
+    'contacts.chesscom': 'Игровой профиль',
+    
+    // Footer
+    'footer.rights': '© 2024 Umbetov Kazybek Chess. Все права защищены.',
+    'footer.description': 'Профессиональное обучение шахматам онлайн с международным мастером FIDE',
+    'footer.links': 'Быстрые ссылки',
+    'footer.contact': 'Контакты',
+    'footer.social': 'Социальные сети'
   },
   en: {
     // Navigation
@@ -61,6 +122,13 @@ const translations = {
     'nav.reviews': 'Reviews',
     'nav.requirements': 'Requirements',
     'nav.contacts': 'Contacts',
+    
+    // Hero Section
+    'hero.title': 'Online Chess Training with FM Kazybek',
+    'hero.subtitle': 'Personal chess lessons via Google Meet and Microsoft Teams',
+    'hero.description': 'FM Kazybek from Kazakhstan offers professional online chess training for children and adults. Online chess lessons with FIDE Master.',
+    'hero.cta': 'Book a Lesson',
+    'hero.cta2': 'Learn More',
     
     // Contact Form
     'contact.title': 'Ask a Question',
@@ -76,23 +144,77 @@ const translations = {
     'reviews.stats.total': 'Total reviews',
     'reviews.stats.recommend': 'Recommend',
     'reviews.stats.active': 'Active students',
+    'reviews.showMore': 'Show More',
+    'reviews.details': 'Details',
     
     // Services
-    'services.title': 'Our Services',
-    'services.subtitle': 'Choose the learning format that suits you best',
+    'services.title': 'Services',
+    'services.subtitle': 'Choose the learning format that suits you best. All programs are adapted to your level and goals.',
+    'services.currency': 'Currency',
+    'services.bookLesson': 'Book Now',
+    'services.individual': 'Individual Lessons',
+    'services.group': 'Group Lessons',
+    'services.pair': 'Pair Lessons',
+    'services.plans': 'Pricing Plans',
+    
+    // Advantages
+    'advantages.title': 'Benefits of Online Chess Learning',
+    'advantages.professional.title': 'Professional Approach to Chess Training',
+    'advantages.professional.desc': 'With focus on strategic thinking development',
+    'advantages.individual.title': 'Individual Approach',
+    'advantages.individual.desc': 'Personal online chess training programs for each student',
+    'advantages.experience.title': 'FM Chess Trainer Experience',
+    'advantages.experience.desc': 'More than 7 years of teaching children and adults chess with confirmed FIDE Master title',
+    'advantages.online.title': 'Chess Lessons via Google Meet',
+    'advantages.online.desc': 'Flexible schedule and convenient platforms for online chess lessons',
+    
+    // Stats
+    'stats.students': 'students',
+    'stats.tournaments': 'international tournaments',
+    'stats.trainers': 'trainers',
+    'stats.experience': 'years of playing experience',
+    'stats.teaching': 'years of teaching',
     
     // Trainers
     'trainers.title': 'About Our Team of Trainers',
     'trainers.subtitle': 'Professional team of trainers with international experience and proven results',
-    'trainers.umbet.name': 'Umbetov Kazybek',
-    'trainers.umbet.title': 'Head Trainer, FIDE Master',
-    'trainers.umbet.desc': 'Maximum effect and full trainer attention',
-    'trainers.amir.name': 'Satybaldy Amir',
-    'trainers.amir.title': 'Senior Trainer, CMS',
-    'trainers.amir.desc': 'Up to 4 people: team dynamics and tournament practice',
-    'trainers.tamerlan.name': 'Khasenov Tamerlan',
-    'trainers.tamerlan.title': 'Senior Trainer, CMS',
-    'trainers.tamerlan.desc': 'Perfect balance of attention and cost'
+    'trainers.stats.students': 'trained students (total team)',
+    'trainers.stats.experience': 'years of combined coaching experience',
+    'trainers.stats.tournaments': 'tournaments participated',
+    'trainers.stats.rating': 'average rating from student reviews',
+    
+    // Requirements
+    'requirements.title': 'What You Need for Chess Lessons',
+    'requirements.computer': 'Computer with microphone',
+    'requirements.internet': 'Internet, Google or Microsoft account',
+    'requirements.platform': 'Google Meet or Microsoft Teams',
+    'requirements.materials': 'Notebook, pen, board (optional)',
+    'requirements.student': 'Student of any age',
+    
+    // Contacts
+    'contacts.title': 'Contacts',
+    'contacts.subtitle': 'Contact me to book lessons or get consultation. I respond quickly!',
+    'contacts.methods': 'Contact Methods',
+    'contacts.whatsapp': 'Quick messages',
+    'contacts.telegram': 'Main communication channel',
+    'contacts.telegramChannel': 'Our Telegram Channel',
+    'contacts.channelDesc': 'News and updates',
+    'contacts.email': 'Detailed questions',
+    'contacts.schedule': 'Working Hours',
+    'contacts.scheduleTime': 'Monday — Sunday',
+    'contacts.format': 'Lesson Format',
+    'contacts.formatDesc': 'Lessons are conducted online only',
+    'contacts.platforms': 'Via Google Meet or Microsoft Teams',
+    'contacts.profiles': 'My Chess Platform Profiles',
+    'contacts.lichess': 'Gaming profile',
+    'contacts.chesscom': 'Gaming profile',
+    
+    // Footer
+    'footer.rights': '© 2024 Umbetov Kazybek Chess. All rights reserved.',
+    'footer.description': 'Professional online chess training with FIDE Master',
+    'footer.links': 'Quick Links',
+    'footer.contact': 'Contact',
+    'footer.social': 'Social Media'
   }
 };
 

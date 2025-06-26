@@ -1,185 +1,222 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Star, Trophy, Users, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ExternalLink, Trophy, Users, Target, Zap } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 const TrainersSection = () => {
   const { t } = useLanguage();
 
   const trainers = [
     {
-      id: 'umbet',
-      name: t('trainers.umbet.name'),
-      title: t('trainers.umbet.title'),
-      description: t('trainers.umbet.desc'),
-      level: 'Золотой уровень',
+      name: 'Умбетов Казыбек',
+      title: 'Главный тренер, FIDE Мастер',
+      description: 'Максимальный эффект и полное внимание тренера',
       image: '/lovable-uploads/27d4b69c-78a0-4def-8a3d-c76fb8a9e0bd.png',
       achievements: [
-        'FIDE Мастер по шахматам',
-        'Top-100 сильнейших шахматистов Казахстана',
-        'Участник 50+ международных турниров',
-        'Опыт участия в 300+ турнирах',
-        'Обучил 450+ успешных учеников',
-        '7+ лет профессионального преподавания',
-        'Высокие рейтинги на всех платформах'
+        'FIDE Master (FM)',
+        'Рейтинг 2200+',
+        '7+ лет тренерского опыта',
+        '200+ успешных учеников'
       ],
-      specializations: [
-        'Онлайн обучение',
-        'Профессиональная подготовка к турнирам',
-        'Профессиональная упаковка дебютного репертуара',
-        'Ведение групповых занятий'
+      specialization: [
+        'Турнирная подготовка',
+        'Стратегическое планирование',
+        'Эндшпильная техника',
+        'Дебютная подготовка'
       ],
-      rating: {
-        lichess: '2700+',
-        chesscom: '2600+'
-      }
+      profiles: [
+        {
+          platform: 'Lichess',
+          url: 'https://lichess.org/@/Terminator_10000',
+          icon: '♞'
+        },
+        {
+          platform: 'Chess.com',
+          url: 'https://www.chess.com/member/bale1290',
+          icon: '♟'
+        }
+      ],
+      icon: Trophy
     },
     {
-      id: 'amir',
-      name: t('trainers.amir.name'),
-      title: t('trainers.amir.title'),
-      description: t('trainers.amir.desc'),
-      level: 'Серебряный уровень',
+      name: 'Сатыбалды Амир',
+      title: 'Старший тренер, КМС',
+      description: 'До 4 человек: командная динамика и турнирная практика',
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
       achievements: [
-        'КМС по шахматам',
-        'Призёр чемпионата Республики Казахстан',
-        'Многократный победитель городских турниров',
-        '9 лет преподавательского опыта',
-        '15+ лет соревновательного опыта',
-        'Специалист по работе с начинающими'
-      ]
+        'Кандидат в мастера спорта',
+        'Рейтинг 2000+',
+        '5+ лет тренерского опыта',
+        '150+ успешных учеников'
+      ],
+      specialization: [
+        'Групповые занятия',
+        'Тактические комбинации',
+        'Детское обучение',
+        'Базовая стратегия'
+      ],
+      profiles: [
+        {
+          platform: 'Chess.com',
+          url: 'https://www.chess.com/member/TTenthOcean',
+          icon: '♟'
+        }
+      ],
+      icon: Users
     },
     {
-      id: 'tamerlan',
-      name: t('trainers.tamerlan.name'),
-      title: t('trainers.tamerlan.title'),
-      description: t('trainers.tamerlan.desc'),
-      level: 'Серебряный уровень',
+      name: 'Хасенов Тамерлан',
+      title: 'Старший тренер, КМС',
+      description: 'Идеальный баланс внимания и стоимости',
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
       achievements: [
-        'КМС по шахматам',
-        'Призёр чемпионата Республики Казахстан',
-        'Многократный победитель городских турниров',
-        '9 лет преподавательского опыта',
-        '15+ лет соревновательного опыта',
-        'Специалист по работе с начинающими'
-      ]
+        'Кандидат в мастера спорта',
+        'Рейтинг 1950+',
+        '4+ года тренерского опыта',
+        '100+ успешных учеников'
+      ],
+      specialization: [
+        'Парные занятия',
+        'Позиционная игра',
+        'Миттельшпиль',
+        'Анализ партий'
+      ],
+      profiles: [
+        {
+          platform: 'Lichess',
+          url: 'https://lichess.org/@/Tamerlan_269',
+          icon: '♞'
+        }
+      ],
+      icon: Target
     }
   ];
 
   return (
-    <section id="about" className="py-16 bg-background">
+    <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t('trainers.title')}
-          </h2>
+          </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {t('trainers.subtitle')}
           </p>
         </div>
 
-        <div className="space-y-12">
+        {/* Team Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={500} suffix="+" />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('trainers.stats.students')}</p>
+          </div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={16} suffix="+" />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('trainers.stats.experience')}</p>
+          </div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={350} suffix="+" />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('trainers.stats.tournaments')}</p>
+          </div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={5.0} decimals={1} />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('trainers.stats.rating')}</p>
+          </div>
+        </div>
+
+        {/* Trainers Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {trainers.map((trainer, index) => (
-            <div
-              key={trainer.id}
-              className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } gap-8 items-center bg-muted/30 rounded-2xl p-8 border border-border`}
-            >
-              {/* Image */}
-              <div className="w-full lg:w-1/3">
-                <div className="relative">
-                  <img
-                    src={trainer.image}
-                    alt={trainer.name}
-                    className="w-full aspect-square object-cover rounded-xl"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      trainer.level === 'Золотой уровень' 
-                        ? 'bg-yellow-500 text-black' 
-                        : 'bg-gray-500 text-white'
-                    }`}>
-                      {trainer.level}
-                    </div>
+            <Card key={index} className="border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="text-center pb-4">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-muted">
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 flex items-center justify-center">
+                    <trainer.icon className="w-12 h-12 text-yellow-500" />
                   </div>
                 </div>
-              </div>
-
-              {/* Content */}
-              <div className="w-full lg:w-2/3 space-y-6">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    {trainer.name}
-                  </h3>
-                  <p className="text-lg text-yellow-500 font-semibold mb-4">
-                    {trainer.title}
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {trainer.description}
-                  </p>
-                </div>
-
+                <CardTitle className="text-xl">{trainer.name}</CardTitle>
+                <CardDescription className="text-sm font-medium text-yellow-600">
+                  {trainer.title}
+                </CardDescription>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {trainer.description}
+                </p>
+              </CardHeader>
+              
+              <CardContent className="space-y-6">
                 {/* Achievements */}
                 <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center">
-                    <Trophy className="w-5 h-5 text-yellow-500 mr-2" />
-                    Достижения
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {trainer.achievements.map((achievement, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <Star className="w-4 h-4 text-yellow-500 mr-2 flex-shrink-0" />
+                  <h4 className="font-semibold mb-3 text-foreground">Достижения</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {trainer.achievements.map((achievement, achievementIndex) => (
+                      <Badge
+                        key={achievementIndex}
+                        variant="outline"
+                        className="justify-start text-xs"
+                      >
                         {achievement}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Specialization */}
+                <div>
+                  <h4 className="font-semibold mb-3 text-foreground">Специализация</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {trainer.specialization.map((spec, specIndex) => (
+                      <div key={specIndex} className="flex items-center text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2" />
+                        {spec}
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Specializations for Umbet */}
-                {trainer.specializations && (
-                  <div>
-                    <h4 className="text-lg font-semibold text-foreground mb-3">
-                      Специализации
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {trainer.specializations.map((spec, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-sm font-medium"
-                        >
-                          {spec}
-                        </span>
-                      ))}
-                    </div>
+                {/* Chess Platform Profiles */}
+                <div>
+                  <h4 className="font-semibold mb-3 text-foreground">Профили на платформах</h4>
+                  <div className="space-y-2">
+                    {trainer.profiles.map((profile, profileIndex) => (
+                      <Button
+                        key={profileIndex}
+                        variant="outline"
+                        size="sm"
+                        className="w-full justify-between hover:bg-yellow-500/10 hover:border-yellow-500"
+                        onClick={() => window.open(profile.url, '_blank')}
+                      >
+                        <div className="flex items-center">
+                          <span className="mr-2 text-lg">{profile.icon}</span>
+                          {profile.platform}
+                        </div>
+                        <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    ))}
                   </div>
-                )}
+                </div>
 
-                {/* Rating for Umbet */}
-                {trainer.rating && (
-                  <div className="flex flex-wrap gap-4">
-                    <div className="flex items-center space-x-2 bg-background rounded-lg p-3 border border-border">
-                      <span className="text-sm font-medium text-muted-foreground">Lichess</span>
-                      <span className="text-lg font-bold text-foreground">{trainer.rating.lichess}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 bg-background rounded-lg p-3 border border-border">
-                      <span className="text-sm font-medium text-muted-foreground">Chess.com</span>
-                      <span className="text-lg font-bold text-foreground">{trainer.rating.chesscom}</span>
-                    </div>
-                  </div>
-                )}
-
+                {/* Contact Button */}
                 <Button
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
                   onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
                 >
-                  Связаться с главным тренером
+                  Записаться на урок
                 </Button>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

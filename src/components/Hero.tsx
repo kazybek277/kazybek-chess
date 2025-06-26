@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -29,8 +30,12 @@ const Hero = () => {
           {t('hero.title')}
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl mx-auto leading-relaxed">
           {t('hero.subtitle')}
+        </p>
+
+        <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+          {t('hero.description')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -40,6 +45,16 @@ const Hero = () => {
             onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
           >
             {t('hero.cta')}
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black font-semibold px-8 py-3 text-lg"
+            asChild
+          >
+            <Link to="/about">
+              {t('hero.cta2')}
+            </Link>
           </Button>
         </div>
       </div>

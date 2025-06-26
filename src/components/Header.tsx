@@ -37,7 +37,7 @@ const Header = () => {
               <span className="text-black font-bold text-lg">♔</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg">Kazybek</span>
+              <span className="font-bold text-lg">Umbetov Kazybek</span>
               <span className="text-xs text-muted-foreground">Chess</span>
             </div>
           </Link>
