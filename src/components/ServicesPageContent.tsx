@@ -5,10 +5,28 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Check, X, Users, Clock, Target } from 'lucide-react';
 
 const ServicesPageContent = () => {
   const { t } = useLanguage();
+  const [selectedCurrency, setSelectedCurrency] = useState('RUB');
+
+  const currencies = [
+    { code: 'USD', symbol: '$', rate: 1 },
+    { code: 'EUR', symbol: '€', rate: 0.9 },
+    { code: 'KZT', symbol: '₸', rate: 500 },
+    { code: 'RUB', symbol: '₽', rate: 80 }
+  ];
+
+  const convertPrice = (basePrice: number) => {
+    const currency = currencies.find(c => c.code === selectedCurrency);
+    return Math.round(basePrice * currency!.rate);
+  };
+
+  const getCurrencySymbol = () => {
+    return currencies.find(c => c.code === selectedCurrency)?.symbol || '₽';
+  };
 
   const serviceFeatures = [
     { key: 'consultation', ru: 'Консультация', en: 'Consultation' },
@@ -66,21 +84,21 @@ const ServicesPageContent = () => {
       services: [
         {
           title: 'Индивидуальные занятия',
-          price: '3000₽',
+          basePriceUSD: 37.5, // 3000₽ / 80
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
           title: 'Групповые занятия',
-          price: '1000₽',
+          basePriceUSD: 12.5, // 1000₽ / 80
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
           title: 'Занятия в паре',
-          price: '2000₽',
+          basePriceUSD: 25, // 2000₽ / 80
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -93,21 +111,21 @@ const ServicesPageContent = () => {
       services: [
         {
           title: 'Индивидуальные занятия',
-          price: '1500₽',
+          basePriceUSD: 18.75, // 1500₽ / 80
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
           title: 'Групповые занятия',
-          price: '600₽',
+          basePriceUSD: 7.5, // 600₽ / 80
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
           title: 'Занятия в паре',
-          price: '900₽',
+          basePriceUSD: 11.25, // 900₽ / 80
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -120,21 +138,21 @@ const ServicesPageContent = () => {
       services: [
         {
           title: 'Индивидуальные занятия',
-          price: '1500₽',
+          basePriceUSD: 18.75, // 1500₽ / 80
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
           icon: Users
         },
         {
           title: 'Групповые занятия',
-          price: '600₽',
+          basePriceUSD: 7.5, // 600₽ / 80
           duration: '60 мин',
           features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
           icon: Target
         },
         {
           title: 'Занятия в паре',
-          price: '900₽',
+          basePriceUSD: 11.25, // 900₽ / 80
           duration: '60 мин',
           features: ['Для друзей/семьи', 'Совместное обучение'],
           icon: Clock
@@ -153,6 +171,25 @@ const ServicesPageContent = () => {
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Выберите формат обучения, который подходит именно вам. Все программы адаптируются под ваш уровень и цели.
           </p>
+        </div>
+
+        {/* Controls */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium text-muted-foreground">Валюта:</span>
+            <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
+              <SelectTrigger className="w-24">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {currencies.map((currency) => (
+                  <SelectItem key={currency.code} value={currency.code}>
+                    {currency.symbol} {currency.code}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <Tabs defaultValue="kazybek" className="w-full">
@@ -174,7 +211,7 @@ const ServicesPageContent = () => {
                       </div>
                       <CardTitle className="text-xl">{service.title}</CardTitle>
                       <div className="text-3xl font-bold text-foreground">
-                        {service.price}
+                        {convertPrice(service.basePriceUSD)}{getCurrencySymbol()}
                       </div>
                       <CardDescription className="flex items-center justify-center">
                         <Clock className="w-4 h-4 mr-1" />
