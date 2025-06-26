@@ -1,12 +1,15 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Star, Search } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Star, ExternalLink, Award, Shield } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 const ReviewsSection = () => {
   const { t } = useLanguage();
-  const [selectedTrainer, setSelectedTrainer] = useState('kazybek');
+  const [selectedTrainer, setSelectedTrainer] = useState('all');
   const [visibleReviews, setVisibleReviews] = useState(6);
 
   const reviews = [
@@ -393,21 +396,34 @@ const ReviewsSection = () => {
   ];
 
   const trainers = [
-    { id: 'kazybek', name: 'Казыбек' },
-    { id: 'amir', name: 'Амир' },
-    { id: 'tamerlan', name: 'Тамерлан' }
+    { id: 'all', name: t('reviews.all'), count: reviews.length },
+    { id: 'kazybek', name: t('reviews.kazybek'), count: reviews.filter(r => r.trainer === 'kazybek').length },
+    { id: 'amir', name: t('reviews.amir'), count: reviews.filter(r => r.trainer === 'amir').length },
+    { id: 'tamerlan', name: t('reviews.tamerlan'), count: reviews.filter(r => r.trainer === 'tamerlan').length }
   ];
 
-  const filteredReviews = reviews.filter(review => review.trainer === selectedTrainer);
+  const filteredReviews = selectedTrainer === 'all' 
+    ? reviews 
+    : reviews.filter(review => review.trainer === selectedTrainer);
+
   const displayedReviews = filteredReviews.slice(0, visibleReviews);
 
-  const handleShowMore = () => {
-    setVisibleReviews(prev => prev + 6);
+  const getTrainerStats = () => {
+    const trainerReviews = selectedTrainer === 'all' ? reviews : reviews.filter(r => r.trainer === selectedTrainer);
+    return {
+      total: trainerReviews.length,
+      rating: 5.0,
+      recommend: 100,
+      active: selectedTrainer === 'all' ? 45 : selectedTrainer === 'kazybek' ? 35 : 10
+    };
   };
+
+  const stats = getTrainerStats();
 
   return (
     <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t('reviews.title')}
@@ -418,81 +434,130 @@ const ReviewsSection = () => {
         </div>
 
         {/* Trainer Filter */}
-        <div className="flex justify-center mb-8">
-          <div className="flex bg-muted rounded-lg p-1">
-            {trainers.map((trainer) => (
-              <button
-                key={trainer.id}
-                onClick={() => {
-                  setSelectedTrainer(trainer.id);
-                  setVisibleReviews(6);
-                }}
-                className={`px-6 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
-                  selectedTrainer === trainer.id
-                    ? 'bg-yellow-500 text-black shadow-md'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-background/50'
-                }`}
-              >
-                {trainer.name}
-              </button>
-            ))}
-          </div>
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {trainers.map((trainer) => (
+            <Button
+              key={trainer.id}
+              variant={selectedTrainer === trainer.id ? "default" : "outline"}
+              onClick={() => {
+                setSelectedTrainer(trainer.id);
+                setVisibleReviews(6);
+              }}
+              className={`${selectedTrainer === trainer.id ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : ''}`}
+            >
+              {trainer.name} ({trainer.count})
+            </Button>
+          ))}
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="text-center p-4 bg-muted/30 rounded-lg">
-            <div className="text-2xl font-bold text-yellow-500">5.0</div>
-            <div className="text-sm text-muted-foreground">{t('reviews.stats.rating')}</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              {stats.rating}
+            </div>
+            <p className="text-sm text-muted-foreground">{t('reviews.stats.rating')}</p>
           </div>
-          <div className="text-center p-4 bg-muted/30 rounded-lg">
-            <div className="text-2xl font-bold text-yellow-500">{filteredReviews.length}</div>
-            <div className="text-sm text-muted-foreground">{t('reviews.stats.total')}</div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={stats.total} />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('reviews.stats.total')}</p>
           </div>
-          <div className="text-center p-4 bg-muted/30 rounded-lg">
-            <div className="text-2xl font-bold text-yellow-500">100%</div>
-            <div className="text-sm text-muted-foreground">{t('reviews.stats.recommend')}</div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={stats.recommend} suffix="%" />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('reviews.stats.recommend')}</p>
           </div>
-          <div className="text-center p-4 bg-muted/30 rounded-lg">
-            <div className="text-2xl font-bold text-yellow-500">450+</div>
-            <div className="text-sm text-muted-foreground">{t('reviews.stats.active')}</div>
+          <div className="text-center p-6 bg-muted/30 rounded-lg">
+            <div className="text-3xl font-bold text-yellow-500 mb-2">
+              <AnimatedCounter end={stats.active} />
+            </div>
+            <p className="text-sm text-muted-foreground">{t('reviews.stats.active')}</p>
           </div>
         </div>
+
+        {/* Verification for Kazybek */}
+        {selectedTrainer === 'kazybek' && (
+          <div className="mb-8 p-6 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-green-600" />
+                <span className="font-semibold text-green-800 dark:text-green-200">
+                  {t('reviews.verified')}
+                </span>
+              </div>
+              <div className="flex gap-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.open('https://profi.ru/profile/UmbetovKT3/', '_blank')}
+                  className="border-green-500 text-green-600 hover:bg-green-50"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Profi.ru (1)
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.open('https://profi.ru/profile/UmbetovKT2/', '_blank')}
+                  className="border-green-500 text-green-600 hover:bg-green-50"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Profi.ru (2)
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {displayedReviews.map((review, index) => (
-            <Card
-              key={index}
-              className="group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-yellow-500/50"
+            <Card 
+              key={index} 
+              className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-card border-2 hover:border-yellow-500/30"
             >
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="font-semibold text-lg">{review.name}</h3>
-                    <p className="text-sm text-muted-foreground">{review.role}</p>
-                  </div>
+              <CardHeader className="pb-3">
+                <div className="flex justify-between items-start mb-2">
+                  <CardTitle className="text-lg font-bold text-foreground">
+                    {review.author}
+                  </CardTitle>
                   <div className="flex">
-                    {[...Array(review.rating)].map((_, i) => (
+                    {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                     ))}
                   </div>
                 </div>
-                
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-4">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs">
+                    {review.type}
+                  </Badge>
+                  <Badge variant="outline" className="text-xs">
+                    {review.format}
+                  </Badge>
+                  <Badge variant="outline" className="text-xs text-muted-foreground">
+                    {review.date}
+                  </Badge>
+                </div>
+              </CardHeader>
+              
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
                   "{review.text}"
                 </p>
                 
-                <div className="space-y-1 text-xs text-muted-foreground">
-                  <p>{review.age} • {review.type}</p>
-                  <p>{review.date}</p>
-                </div>
-
-                {/* Hidden details button that appears on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 mt-4">
-                  <Button size="sm" variant="outline" className="w-full">
-                    <Search className="w-4 h-4 mr-2" />
-                    {t('reviews.details')}
+                {/* Profi.ru link */}
+                <div className="pt-2 border-t border-border/50">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-center gap-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                    onClick={() => window.open('https://profi.ru/profile/UmbetovKT3/', '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {t('reviews.viewOnProfi')}
                   </Button>
                 </div>
               </CardContent>
@@ -504,11 +569,11 @@ const ReviewsSection = () => {
         {visibleReviews < filteredReviews.length && (
           <div className="text-center">
             <Button
-              onClick={handleShowMore}
               variant="outline"
-              className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black"
+              onClick={() => setVisibleReviews(prev => prev + 6)}
+              className="px-8 py-3"
             >
-              {t('reviews.showMore')} ({filteredReviews.length - visibleReviews} осталось)
+              {t('reviews.showMore')} ({filteredReviews.length - visibleReviews} {t('reviews.remaining')})
             </Button>
           </div>
         )}

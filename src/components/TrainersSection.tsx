@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Trophy, Users, Target, Zap } from 'lucide-react';
+import { ExternalLink, Trophy, Users, Target } from 'lucide-react';
 import AnimatedCounter from './AnimatedCounter';
 
 const TrainersSection = () => {
@@ -12,23 +12,24 @@ const TrainersSection = () => {
 
   const trainers = [
     {
-      name: 'Умбетов Казыбек',
-      title: 'Главный тренер, FIDE Master',
-      description: 'Главный тренер золотого уровня с международным опытом. Специализируется на подготке к турнирам, стратегическом обучении и расширении дебютного репертуара.',
+      name: t('trainers.kazybek.name'),
+      title: t('trainers.kazybek.title'),
+      description: t('trainers.kazybek.description'),
       image: '/lovable-uploads/27d4b69c-78a0-4def-8a3d-c76fb8a9e0bd.png',
+      isMain: true,
       achievements: [
-        'FIDE Master по шахматам',
-        'Входит в топ-100 шахматистов Казахстана', 
-        'Участник 50+ международных турниров',
-        'Обучил 450+ успешных учеников',
-        'Рейтинг: 2700+ на Lichess, 2600+ на Chess.com',
-        '7+ лет профессионального преподавания'
+        t('trainers.kazybek.achievements.fide'),
+        t('trainers.kazybek.achievements.top100'),
+        t('trainers.kazybek.achievements.tournaments'),
+        t('trainers.kazybek.achievements.students'),
+        t('trainers.kazybek.achievements.rating'),
+        t('trainers.kazybek.achievements.experience')
       ],
       specialization: [
-        'Турнирная подготовка',
-        'Стратегическое мышление',
-        'Эндшпильная техника',
-        'Разработка дебютов'
+        t('trainers.kazybek.specialization.tournament'),
+        t('trainers.kazybek.specialization.strategic'),
+        t('trainers.kazybek.specialization.endgame'),
+        t('trainers.kazybek.specialization.openings')
       ],
       profiles: [
         {
@@ -43,27 +44,28 @@ const TrainersSection = () => {
         }
       ],
       icon: Trophy,
-      accentColor: 'from-yellow-500/20 to-yellow-600/20 border-yellow-500/30'
+      accentColor: 'from-yellow-400/30 to-yellow-600/30 border-yellow-500/50 bg-gradient-to-br from-yellow-50/10 to-yellow-100/20'
     },
     {
-      name: 'Сатыбалды Амир',
-      title: 'Старший тренер, Кандидат в мастера спорта (КМС)',
-      description: 'Международный соревновательный опыт и мощная методика подготовки спортсменов к разрядам и турнирам. Идеален для командных и групповых форматов.',
+      name: t('trainers.amir.name'),
+      title: t('trainers.amir.title'),
+      description: t('trainers.amir.description'),
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
+      isMain: false,
       achievements: [
-        'Чемпион Азии по блицу',
-        '4-кратный Чемпион Казахстана',
-        'Многократный чемпион города',
-        'Участник мировых командных турниров',
-        '15+ лет соревновательного опыта',
-        '10 лет преподавания',
-        'Ученики — многократные чемпионы'
+        t('trainers.amir.achievements.asia'),
+        t('trainers.amir.achievements.champion'),
+        t('trainers.amir.achievements.city'),
+        t('trainers.amir.achievements.world'),
+        t('trainers.amir.achievements.experience'),
+        t('trainers.amir.achievements.teaching'),
+        t('trainers.amir.achievements.students')
       ],
       specialization: [
-        'Групповые и командные занятия',
-        'Тактика и блиц-комбинации',
-        'Подготовка до КМС и 4-го разряда',
-        'Развитие уверенности и мышления'
+        t('trainers.amir.specialization.group'),
+        t('trainers.amir.specialization.tactics'),
+        t('trainers.amir.specialization.preparation'),
+        t('trainers.amir.specialization.confidence')
       ],
       profiles: [
         {
@@ -73,26 +75,27 @@ const TrainersSection = () => {
         }
       ],
       icon: Users,
-      accentColor: 'from-blue-500/20 to-blue-600/20 border-blue-500/30'
+      accentColor: 'from-gray-300/30 to-gray-500/30 border-gray-400/50 bg-gradient-to-br from-gray-50/10 to-gray-100/20'
     },
     {
-      name: 'Хасенов Тамерлан',
-      title: 'Старший тренер, КМС',
-      description: 'Специалист серебряного уровня по работе с начинающими и юными шахматистами. Отличный выбор для тех, кто делает первые шаги или хочет стабильный рост.',
+      name: t('trainers.tamerlan.name'),
+      title: t('trainers.tamerlan.title'),
+      description: t('trainers.tamerlan.description'),
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
+      isMain: false,
       achievements: [
-        'КМС по шахматам',
-        'Призёр Чемпионата Казахстана',
-        'Многократный победитель городских турниров',
-        '15+ лет соревновательного опыта',
-        '9 лет преподавания',
-        'Ученики регулярно выполняют спортивные разряды'
+        t('trainers.tamerlan.achievements.kms'),
+        t('trainers.tamerlan.achievements.prizewinner'),
+        t('trainers.tamerlan.achievements.city'),
+        t('trainers.tamerlan.achievements.experience'),
+        t('trainers.tamerlan.achievements.teaching'),
+        t('trainers.tamerlan.achievements.students')
       ],
       specialization: [
-        'Работа с детьми и новичками',
-        'Позиционная игра, миттельшпиль',
-        'Парные занятия',
-        'Анализ партий'
+        t('trainers.tamerlan.specialization.children'),
+        t('trainers.tamerlan.specialization.positional'),
+        t('trainers.tamerlan.specialization.pair'),
+        t('trainers.tamerlan.specialization.analysis')
       ],
       profiles: [
         {
@@ -102,7 +105,7 @@ const TrainersSection = () => {
         }
       ],
       icon: Target,
-      accentColor: 'from-green-500/20 to-green-600/20 border-green-500/30'
+      accentColor: 'from-gray-300/30 to-gray-500/30 border-gray-400/50 bg-gradient-to-br from-gray-50/10 to-gray-100/20'
     }
   ];
 
@@ -152,8 +155,17 @@ const TrainersSection = () => {
           {trainers.map((trainer, index) => (
             <Card 
               key={index} 
-              className={`group relative border-2 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 cursor-pointer bg-gradient-to-br ${trainer.accentColor} backdrop-blur-sm overflow-hidden`}
+              className={`group relative border-2 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 cursor-pointer ${trainer.accentColor} backdrop-blur-sm overflow-hidden`}
             >
+              {/* Main trainer badge */}
+              {trainer.isMain && (
+                <div className="absolute top-4 right-4 z-20">
+                  <Badge className="bg-yellow-500 text-black font-bold">
+                    {t('trainers.mainTrainer')}
+                  </Badge>
+                </div>
+              )}
+
               {/* Decorative background pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
                 <trainer.icon className="w-full h-full" />
@@ -161,7 +173,7 @@ const TrainersSection = () => {
               
               <CardHeader className="text-center pb-4 relative z-10">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-muted/50 to-muted/80 flex items-center justify-center border-4 border-white/20 shadow-lg">
-                  <trainer.icon className="w-10 h-10 text-yellow-500" />
+                  <trainer.icon className={`w-10 h-10 ${trainer.isMain ? 'text-yellow-500' : 'text-gray-500'}`} />
                 </div>
                 <CardTitle className="text-xl font-bold">{trainer.name}</CardTitle>
                 <CardDescription className="text-sm font-medium text-primary px-3 py-1 bg-background/80 rounded-full inline-block">
@@ -176,12 +188,12 @@ const TrainersSection = () => {
                 {/* Achievements */}
                 <div>
                   <h4 className="font-bold mb-3 text-foreground flex items-center">
-                    🏅 <span className="ml-2">Достижения</span>
+                    🏅 <span className="ml-2">{t('trainers.achievements')}</span>
                   </h4>
                   <div className="space-y-2">
                     {trainer.achievements.map((achievement, achievementIndex) => (
                       <div key={achievementIndex} className="flex items-start text-sm">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3 mt-2 flex-shrink-0" />
+                        <div className={`w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 ${trainer.isMain ? 'bg-yellow-500' : 'bg-gray-500'}`} />
                         <span className="text-muted-foreground leading-relaxed">{achievement}</span>
                       </div>
                     ))}
@@ -191,7 +203,7 @@ const TrainersSection = () => {
                 {/* Specialization */}
                 <div>
                   <h4 className="font-bold mb-3 text-foreground flex items-center">
-                    🧠 <span className="ml-2">Специализация</span>
+                    🧠 <span className="ml-2">{t('trainers.specialization')}</span>
                   </h4>
                   <div className="grid grid-cols-1 gap-2">
                     {trainer.specialization.map((spec, specIndex) => (
@@ -209,7 +221,7 @@ const TrainersSection = () => {
                 {/* Chess Platform Profiles */}
                 <div>
                   <h4 className="font-bold mb-3 text-foreground flex items-center">
-                    🌐 <span className="ml-2">Платформы</span>
+                    🌐 <span className="ml-2">{t('trainers.platforms')}</span>
                   </h4>
                   <div className="space-y-2">
                     {trainer.profiles.map((profile, profileIndex) => (
@@ -233,10 +245,14 @@ const TrainersSection = () => {
                 {/* Contact Button with enhanced visibility */}
                 <div className="pt-4 border-t border-border/50">
                   <Button
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                    className={`w-full font-bold py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 ${
+                      trainer.isMain 
+                        ? 'bg-yellow-500 hover:bg-yellow-600 text-black' 
+                        : 'bg-gray-500 hover:bg-gray-600 text-white'
+                    }`}
                     onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
                   >
-                    🔗 Записаться на урок
+                    🔗 {t('trainers.bookLesson')}
                   </Button>
                 </div>
               </CardContent>
@@ -245,6 +261,21 @@ const TrainersSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </Card>
           ))}
+        </div>
+
+        {/* Telegram Bot Section */}
+        <div className="mt-16 text-center">
+          <div className="bg-muted/30 rounded-lg p-8">
+            <h3 className="text-2xl font-bold mb-4">{t('trainers.botTitle')}</h3>
+            <p className="text-muted-foreground mb-6">{t('trainers.botDescription')}</p>
+            <Button
+              size="lg"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold"
+              onClick={() => window.open('https://t.me/Kazybek_Umbetov_Chess_Bot', '_blank')}
+            >
+              🤖 {t('trainers.botButton')}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

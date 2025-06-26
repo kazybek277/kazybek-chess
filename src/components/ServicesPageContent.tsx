@@ -35,12 +35,12 @@ const ServicesPageContent = () => {
     { key: 'analysis', ru: 'Анализ партий', en: 'Game analysis' },
     { key: 'openings', ru: 'Дебютный репертуар', en: 'Opening repertoire' },
     { key: 'studios', ru: 'Студии (ограничение)', en: 'Studios (limit)' },
-    { key: 'homework', ru: 'Домашнее задание', en: 'Homework' },
+    { key: 'homework', ru: 'Домашнее задание + проверка (во время урока)', en: 'Homework + check (during lesson)' },
     { key: 'precheck', ru: 'Проверка до урока', en: 'Pre-lesson check' },
     { key: 'bot', ru: 'Бот для отработки', en: 'Practice bot' },
     { key: 'progress', ru: 'Отслеживание прогресса', en: 'Progress tracking' },
     { key: 'reminders', ru: 'Напоминание', en: 'Reminders' },
-    { key: 'parent', ru: 'Присутствие родителя', en: 'Parent presence' },
+    { key: 'parent', ru: 'Присутствие опекуна на уроке', en: 'Guardian presence' },
     { key: 'selfdev', ru: 'План саморазвития', en: 'Self-development plan' },
     { key: 'shortvideo', ru: 'Короткое видео до 1.5 мин', en: 'Short video up to 1.5 min' },
     { key: 'longvideo', ru: 'Длинное видео до 10 мин', en: 'Long video up to 10 min' },
@@ -50,32 +50,31 @@ const ServicesPageContent = () => {
 
   const plans = [
     { key: 'self', ru: 'Для себя', en: 'For self' },
-    { key: 'basic', ru: 'Базовый (1/нед)', en: 'Basic (1/week)' },
-    { key: 'extended', ru: 'Расширенный (2/нед)', en: 'Extended (2/week)' },
-    { key: 'intensive', ru: 'Интенсив (3/нед)', en: 'Intensive (3/week)' },
-    { key: 'extreme', ru: 'Экстремальный (4-5/нед)', en: 'Extreme (4-5/week)' },
-    { key: 'intensive+', ru: 'Интенсив+ (6-7/нед)', en: 'Intensive+ (6-7/week)' }
+    { key: 'basic', ru: 'Базовый', en: 'Basic' },
+    { key: 'extended', ru: 'Расширенный', en: 'Extended' },
+    { key: 'intensive', ru: 'Интенсив', en: 'Intensive' },
+    { key: 'extreme', ru: 'Экстремальный', en: 'Extreme' }
   ];
 
-  // Corrected plan features based on the original table
+  // Corrected plan features based on your specifications
   const planFeatures = {
-    consultation: ['✅', '✅', '✅', '✅', '✅', '✅'],
-    reschedule: ['✗', 'max 2', 'max 4', 'max 6', 'max 12', 'max 18'],
-    cancel: ['✗', 'max 1', 'max 2', 'max 3', 'max 5', '✅'],
-    analysis: ['✅', '✅', '✅', '✅', '✅', '✅'],
-    openings: ['✗', 'Базовый', 'Расширенный', 'Полный', 'Полный + доп', 'Полный + доп'],
-    studios: ['3', '5', '7', '10', '10', '10'],
-    homework: ['✅', '✅', '✅', '✅', '✅', '✅'],
-    precheck: ['✗', '✅', '✅', '✅', '✅', '✅'],
-    bot: ['✗', '✗', '✅', '✅', '✅', '✅'],
-    progress: ['✗', '✅', '✅', '✅', '✅', '✅'],
-    reminders: ['✗', '✅', '✅', '✅', '✅', '✅'],
-    parent: ['✅', '✅', '✅', '✅', '✅', '✅'],
-    selfdev: ['✗', '✅', '✅', '✅', '✅', '✅'],
-    shortvideo: ['✗', '✗', '✅', '✅', '✅', '✅'],
-    longvideo: ['✗', '✗', '✗', '✅', '✅', '✅'],
-    guarantee: ['✗', '✗', '✗', '✅', '✅', '✅'],
-    discount: ['0%', '0%', '5%', '7.5%', '10%', '10%']
+    consultation: ['✅', '✅', '✅', '✅', '✅'],
+    reschedule: ['max 2', 'max 4', 'max 6', 'max 12', 'max 18'],
+    cancel: ['❌', 'max 1', 'max 2', 'max 3', 'max 5'],
+    analysis: ['✅', '✅', '✅', '✅', '✅'],
+    openings: ['Базовый', 'Расширенный', 'Полный', 'Полный + доп', 'Полный + доп'],
+    studios: ['3', '5', '7', '10', '10'],
+    homework: ['❌', '✅', '✅', '✅', '✅'],
+    precheck: ['❌', '❌', '✅', '✅', '✅'],
+    bot: ['❌', '❌', '✅', '✅', '✅'],
+    progress: ['❌', '❌', '✅', '✅', '✅'],
+    reminders: ['✅', '✅', '✅', '✅', '✅'],
+    parent: ['❌', '✅', '✅', '✅', '✅'],
+    selfdev: ['❌', '❌', '✅', '✅', '✅'],
+    shortvideo: ['❌', '❌', '✅', '✅', '✅'],
+    longvideo: ['❌', '❌', '❌', '✅', '✅'],
+    guarantee: ['❌', '❌', '✅', '✅', '✅'],
+    discount: ['0%', '0%', '5%', '7.5%', '10%']
   };
 
   const trainers = [
@@ -84,13 +83,15 @@ const ServicesPageContent = () => {
       name: 'Казыбек',
       avatar: '👑',
       title: 'FM',
+      role: 'Главный тренер',
       services: [
         {
           title: t('services.individual'),
           basePriceUSD: 37.5,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
-          icon: Users
+          icon: Users,
+          popular: true
         },
         {
           title: t('services.group'),
@@ -113,13 +114,15 @@ const ServicesPageContent = () => {
       name: 'Амир',
       avatar: '🎯',
       title: 'КМС',
+      role: 'Старший тренер',
       services: [
         {
           title: t('services.individual'),
           basePriceUSD: 18.75,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
-          icon: Users
+          icon: Users,
+          popular: true
         },
         {
           title: t('services.group'),
@@ -142,13 +145,15 @@ const ServicesPageContent = () => {
       name: 'Тамерлан',
       avatar: '⚡',
       title: 'КМС',
+      role: 'Старший тренер',
       services: [
         {
           title: t('services.individual'),
           basePriceUSD: 18.75,
           duration: '60 мин',
           features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
-          icon: Users
+          icon: Users,
+          popular: true
         },
         {
           title: t('services.group'),
@@ -197,6 +202,13 @@ const ServicesPageContent = () => {
               </SelectContent>
             </Select>
           </div>
+          <Button
+            variant="outline"
+            onClick={() => window.open('https://t.me/Kazybek_Umbetov_Chess_Bot', '_blank')}
+            className="flex items-center gap-2"
+          >
+            🤖 {t('nav.language') === 'ru' ? 'Telegram Бот' : 'Telegram Bot'}
+          </Button>
         </div>
 
         <Tabs defaultValue="kazybek" className="w-full">
@@ -207,12 +219,17 @@ const ServicesPageContent = () => {
                 <TabsTrigger
                   key={trainer.id}
                   value={trainer.id}
-                  className="flex flex-col items-center p-4 space-y-2 data-[state=active]:bg-yellow-500 data-[state=active]:text-black hover:scale-105 transition-all duration-200"
+                  className={`flex flex-col items-center p-4 space-y-2 transition-all duration-200 hover:scale-105 ${
+                    trainer.id === 'kazybek' 
+                      ? 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-600 data-[state=active]:text-black' 
+                      : 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-300 data-[state=active]:to-gray-500 data-[state=active]:text-black'
+                  }`}
                 >
                   <div className="text-2xl">{trainer.avatar}</div>
                   <div className="text-center">
                     <div className="font-semibold">{trainer.name}</div>
                     <div className="text-xs opacity-70">{trainer.title}</div>
+                    <div className="text-xs opacity-60">{trainer.role}</div>
                   </div>
                 </TabsTrigger>
               ))}
@@ -224,7 +241,14 @@ const ServicesPageContent = () => {
               {/* Service Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {trainer.services.map((service, index) => (
-                  <Card key={index} className="border-2 hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+                  <Card key={index} className="border-2 hover:shadow-lg transition-all duration-200 hover:-translate-y-1 relative">
+                    {service.popular && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                          {t('nav.language') === 'ru' ? 'Популярно' : 'Popular'}
+                        </span>
+                      </div>
+                    )}
                     <CardHeader className="text-center">
                       <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <service.icon className="w-6 h-6 text-yellow-500" />
@@ -265,10 +289,10 @@ const ServicesPageContent = () => {
                   <Table>
                     <TableHeader>
                       <TableRow className="bg-muted/50">
-                        <TableHead className="w-[200px] font-bold">Услуга</TableHead>
+                        <TableHead className="w-[200px] font-bold">{t('nav.language') === 'ru' ? 'Услуга' : 'Service'}</TableHead>
                         {plans.map((plan) => (
                           <TableHead key={plan.key} className="text-center min-w-[120px] font-bold">
-                            {plan.ru}
+                            {t('nav.language') === 'ru' ? plan.ru : plan.en}
                           </TableHead>
                         ))}
                       </TableRow>
@@ -276,12 +300,14 @@ const ServicesPageContent = () => {
                     <TableBody>
                       {serviceFeatures.map((feature, index) => (
                         <TableRow key={feature.key} className={index % 2 === 0 ? 'bg-muted/20' : ''}>
-                          <TableCell className="font-medium">{feature.ru}</TableCell>
+                          <TableCell className="font-medium">
+                            {t('nav.language') === 'ru' ? feature.ru : feature.en}
+                          </TableCell>
                           {planFeatures[feature.key].map((value, cellIndex) => (
                             <TableCell key={cellIndex} className="text-center">
                               {value === '✅' ? (
                                 <Check className="w-4 h-4 text-green-500 mx-auto" />
-                              ) : value === '✗' ? (
+                              ) : value === '❌' ? (
                                 <X className="w-4 h-4 text-red-500 mx-auto" />
                               ) : (
                                 <span className="text-sm font-medium">{value}</span>
@@ -293,14 +319,22 @@ const ServicesPageContent = () => {
                     </TableBody>
                   </Table>
                 </div>
+                
+                {/* Legend */}
+                <div className="flex justify-center gap-6 mt-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    <span>{t('nav.language') === 'ru' ? 'Услуга включена' : 'Service included'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-red-500" />
+                    <span>{t('nav.language') === 'ru' ? 'Услуга не включена' : 'Service not included'}</span>
+                  </div>
+                </div>
               </div>
             </TabsContent>
           ))}
         </Tabs>
-
-        <div className="text-center mt-8 text-muted-foreground">
-          <p>1$ = 0.9 € = 500 ₸ = 80 ₽</p>
-        </div>
       </div>
     </section>
   );
