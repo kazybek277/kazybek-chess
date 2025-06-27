@@ -53,22 +53,10 @@ const TrainersSection = () => {
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
       isMain: false,
       achievements: [
-        t('trainers.amir.achievements.asia'),
-        t('trainers.amir.achievements.champion'),
-        t('trainers.amir.achievements.city'),
-        t('trainers.amir.achievements.world'),
-        t('trainers.amir.achievements.experience'),
-        t('trainers.amir.achievements.teaching'),
-        t('trainers.amir.achievements.students'),
-        // New achievements
-        t('trainers.amir.achievements.education'),
-        t('trainers.amir.achievements.student_success'),
-        t('trainers.amir.achievements.languages'),
-        t('trainers.amir.achievements.approach')
-      ],
-      education: [
-        t('trainers.amir.education.oxford'),
-        t('trainers.amir.education.aston')
+        '🏆 Ученики Амира — многократные чемпионы Казахстана и призёры международных турниров.',
+        '🎓 Образование: окончил Oxford International School и Aston University, Великобритания.',
+        '🌍 Свободно говорит на английском, русском и казахском.',
+        '🔍 В обучении делает упор на стратегическое мышление, индивидуальный подход и развитие сильных сторон ученика.'
       ],
       specialization: [
         t('trainers.amir.specialization.group'),
@@ -208,23 +196,6 @@ const TrainersSection = () => {
                     ))}
                   </div>
                 </div>
-
-                {/* Education section for Amir */}
-                {trainer.education && (
-                  <div>
-                    <h4 className="font-bold mb-3 text-foreground flex items-center">
-                      🎓 <span className="ml-2">{t('nav.language') === 'ru' ? 'Образование' : 'Education'}</span>
-                    </h4>
-                    <div className="space-y-2">
-                      {trainer.education.map((edu, eduIndex) => (
-                        <div key={eduIndex} className="flex items-start text-sm">
-                          <div className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 bg-blue-500" />
-                          <span className="text-muted-foreground leading-relaxed">{edu}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 {/* Specialization */}
                 <div>

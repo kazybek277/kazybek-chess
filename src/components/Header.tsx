@@ -48,7 +48,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center shadow-lg">
               <img 
-                src="/lovable-uploads/7202d21f-e13d-4eba-81fb-864386d3a11f.png" 
+                src="/lovable-uploads/8e701e10-cf22-46db-b93b-0034912a19a0.png" 
                 alt="Kazybek Chess" 
                 className="w-8 h-8 object-contain"
               />

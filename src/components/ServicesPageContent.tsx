@@ -51,11 +51,11 @@ const ServicesPageContent = () => {
   ];
 
   const plans = [
-    { key: 'self', ru: 'Для себя', en: 'For self' },
-    { key: 'basic', ru: 'Базовый', en: 'Basic' },
-    { key: 'extended', ru: 'Расширенный', en: 'Extended' },
-    { key: 'intensive', ru: 'Интенсив', en: 'Intensive' },
-    { key: 'extreme', ru: 'Экстремальный', en: 'Extreme' }
+    { key: 'self', ru: 'Для себя (1 раз/нед)', en: 'For self (1 time/week)' },
+    { key: 'basic', ru: 'Базовый (2 раза/нед)', en: 'Basic (2 times/week)' },
+    { key: 'extended', ru: 'Расширенный (3 раза/нед)', en: 'Extended (3 times/week)' },
+    { key: 'intensive', ru: 'Интенсив (4-5 раз/нед)', en: 'Intensive (4-5 times/week)' },
+    { key: 'extreme', ru: 'Экстремальный (6-7 раз/нед)', en: 'Extreme (6-7 times/week)' }
   ];
 
   // Updated plan features based on requirements
@@ -68,7 +68,7 @@ const ServicesPageContent = () => {
     openings: ['Базовый', 'Расширенный', 'Полный', 'Полный + доп', 'Полный + доп'],
     studios: ['3', '5', '7', '10', '10'],
     homework: ['✅', '✅', '✅', '✅', '✅'],
-    precheck: ['❌', '❌', '❌', '✅', '✅'],
+    precheck: ['❌', '❌', '✅', '✅', '✅'],
     bot: ['❌', '❌', '✅', '✅', '✅'],
     progress: ['❌', '❌', '✅', '✅', '✅'],
     reminders: ['❌', '❌', '❌', '✅', '✅'],
@@ -78,7 +78,7 @@ const ServicesPageContent = () => {
     longvideo: ['❌', '❌', '❌', '❌', '✅'],
     guarantee: ['❌', '❌', '❌', '✅', '✅'],
     discount: ['0%', '0%', '5%', '7.5%', '10%'],
-    effectiveness: ['⭐', '⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐']
+    effectiveness: ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐']
   };
 
   const trainers = [
@@ -90,25 +90,31 @@ const ServicesPageContent = () => {
       role: 'Главный тренер',
       services: [
         {
-          title: t('services.individual'),
+          title: 'Индивидуальные занятия',
+          description: 'Максимальный эффект и полное внимание тренера',
+          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
           basePriceUSD: 37.5,
           duration: '60 мин',
-          features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
+          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
           icon: Users,
           popular: true
         },
         {
-          title: t('services.group'),
+          title: 'Групповые занятия',
+          description: 'До 10 человек: командная динамика и турнирная практика',
+          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
           basePriceUSD: 12.5,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
+          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
           icon: Target
         },
         {
-          title: t('services.pair'),
+          title: 'Занятия в паре',
+          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
+          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
           basePriceUSD: 25,
           duration: '60 мин',
-          features: ['Для друзей/семьи', 'Совместное обучение'],
+          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
           icon: Clock
         }
       ]
@@ -121,25 +127,31 @@ const ServicesPageContent = () => {
       role: 'Старший тренер',
       services: [
         {
-          title: t('services.individual'),
-          basePriceUSD: 22.5, // Updated price: 1800₽ / 80 = 22.5 USD
+          title: 'Индивидуальные занятия',
+          description: 'Максимальный эффект и полное внимание тренера',
+          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
+          basePriceUSD: 22.5,
           duration: '60 мин',
-          features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
+          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
           icon: Users,
           popular: true
         },
         {
-          title: t('services.group'),
+          title: 'Групповые занятия',
+          description: 'До 10 человек: командная динамика и турнирная практика',
+          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
           basePriceUSD: 7.5,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
+          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
           icon: Target
         },
         {
-          title: t('services.pair'),
+          title: 'Занятия в паре',
+          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
+          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
           basePriceUSD: 11.25,
           duration: '60 мин',
-          features: ['Для друзей/семьи', 'Совместное обучение'],
+          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
           icon: Clock
         }
       ]
@@ -152,25 +164,31 @@ const ServicesPageContent = () => {
       role: 'Старший тренер',
       services: [
         {
-          title: t('services.individual'),
+          title: 'Индивидуальные занятия',
+          description: 'Максимальный эффект и полное внимание тренера',
+          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
           basePriceUSD: 18.75,
           duration: '60 мин',
-          features: ['Индивидуальный план', 'Гибкий график', 'Домашние задания'],
+          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
           icon: Users,
           popular: true
         },
         {
-          title: t('services.group'),
+          title: 'Групповые занятия',
+          description: 'До 10 человек: командная динамика и турнирная практика',
+          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
           basePriceUSD: 7.5,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Мини-турниры'],
+          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
           icon: Target
         },
         {
-          title: t('services.pair'),
+          title: 'Занятия в паре',
+          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
+          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
           basePriceUSD: 11.25,
           duration: '60 мин',
-          features: ['Для друзей/семьи', 'Совместное обучение'],
+          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
           icon: Clock
         }
       ]
@@ -264,6 +282,12 @@ const ServicesPageContent = () => {
                         <service.icon className="w-6 h-6 text-yellow-500" />
                       </div>
                       <CardTitle className="text-xl">{service.title}</CardTitle>
+                      <CardDescription className="text-sm font-medium mb-2">
+                        {service.description}
+                      </CardDescription>
+                      <p className="text-xs text-muted-foreground mb-4">
+                        {service.details}
+                      </p>
                       <div className="text-3xl font-bold text-foreground">
                         {convertPrice(service.basePriceUSD)}{getCurrencySymbol()}
                       </div>
@@ -275,8 +299,7 @@ const ServicesPageContent = () => {
                     <CardContent>
                       <div className="space-y-3 mb-6">
                         {service.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center text-sm">
-                            <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                          <div key={featureIndex} className="text-sm">
                             <span className="text-muted-foreground">{feature}</span>
                           </div>
                         ))}

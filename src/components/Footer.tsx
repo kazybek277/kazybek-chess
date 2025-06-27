@@ -13,8 +13,12 @@ const Footer = () => {
           {/* Logo and Description */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
-                <span className="text-black font-bold text-lg">♔</span>
+              <div className="w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center shadow-lg">
+                <img 
+                  src="/lovable-uploads/8e701e10-cf22-46db-b93b-0034912a19a0.png" 
+                  alt="Kazybek Chess" 
+                  className="w-6 h-6 object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-lg text-foreground">Umbetov</span>
@@ -70,7 +74,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-foreground mb-4">Контакты</h3>
             <div className="space-y-3">
               <div className="text-sm">
-                <p className="text-muted-foreground">kazybek.chess@gmail.com</p>
+                <p className="text-muted-foreground">kazybekumbetov@gmail.com</p>
               </div>
               <div className="text-sm">
                 <p className="text-muted-foreground">WhatsApp: +7 (775) 999-36-44</p>
