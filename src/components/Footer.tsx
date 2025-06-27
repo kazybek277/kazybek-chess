@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -13,11 +12,11 @@ const Footer = () => {
           {/* Logo and Description */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-md flex items-center justify-center">
                 <img 
-                  src="/lovable-uploads/8e701e10-cf22-46db-b93b-0034912a19a0.png" 
+                  src="/lovable-uploads/2fe25c83-27c2-4e60-bc6f-6bfa52075a6e.png" 
                   alt="Kazybek Chess" 
-                  className="w-6 h-6 object-contain"
+                  className="w-8 h-8 object-contain"
                 />
               </div>
               <div className="flex flex-col">

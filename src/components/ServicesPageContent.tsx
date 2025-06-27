@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -6,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Check, X, Users, Clock, Target, ExternalLink, Star } from 'lucide-react';
+import { Check, X, Users, Clock, Target, ExternalLink, Star, Crown, Sparkles, TrendingUp } from 'lucide-react';
 
 const ServicesPageContent = () => {
   const { t } = useLanguage();
@@ -58,7 +57,7 @@ const ServicesPageContent = () => {
     { key: 'extreme', ru: 'Экстремальный (6-7 раз/нед)', en: 'Extreme (6-7 times/week)' }
   ];
 
-  // Updated plan features based on requirements
+  // Updated plan features with corrected values
   const planFeatures = {
     intensive: ['✅', '✅', '✅', '✅', '✅'],
     consultation: ['✅', '✅', '✅', '✅', '✅'],
@@ -67,13 +66,13 @@ const ServicesPageContent = () => {
     analysis: ['✅', '✅', '✅', '✅', '✅'],
     openings: ['Базовый', 'Расширенный', 'Полный', 'Полный + доп', 'Полный + доп'],
     studios: ['3', '5', '7', '10', '10'],
-    homework: ['✅', '✅', '✅', '✅', '✅'],
+    homework: ['❌', '✅', '✅', '✅', '✅'],
     precheck: ['❌', '❌', '✅', '✅', '✅'],
     bot: ['❌', '❌', '✅', '✅', '✅'],
     progress: ['❌', '❌', '✅', '✅', '✅'],
     reminders: ['❌', '❌', '❌', '✅', '✅'],
     parent: ['❌', '❌', '❌', '✅', '✅'],
-    selfdev: ['❌', '❌', '✅', '✅', '✅'],
+    selfdev: ['❌', '❌', '❌', '✅', '✅'],
     shortvideo: ['❌', '❌', '❌', '✅', '✅'],
     longvideo: ['❌', '❌', '❌', '❌', '✅'],
     guarantee: ['❌', '❌', '❌', '✅', '✅'],
@@ -95,9 +94,10 @@ const ServicesPageContent = () => {
           details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
           basePriceUSD: 37.5,
           duration: '60 мин',
-          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
-          icon: Users,
-          popular: true
+          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
+          icon: Crown,
+          popular: true,
+          gradient: 'from-yellow-400 to-yellow-600'
         },
         {
           title: 'Групповые занятия',
@@ -105,8 +105,9 @@ const ServicesPageContent = () => {
           details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
           basePriceUSD: 12.5,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
-          icon: Target
+          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          icon: Users,
+          gradient: 'from-blue-400 to-blue-600'
         },
         {
           title: 'Занятия в паре',
@@ -114,8 +115,9 @@ const ServicesPageContent = () => {
           details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
           basePriceUSD: 25,
           duration: '60 мин',
-          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
-          icon: Clock
+          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          icon: Users,
+          gradient: 'from-green-400 to-green-600'
         }
       ]
     },
@@ -130,11 +132,12 @@ const ServicesPageContent = () => {
           title: 'Индивидуальные занятия',
           description: 'Максимальный эффект и полное внимание тренера',
           details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
-          basePriceUSD: 22.5,
+          basePriceUSD: 20,
           duration: '60 мин',
-          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
+          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
           icon: Users,
-          popular: true
+          popular: true,
+          gradient: 'from-purple-400 to-purple-600'
         },
         {
           title: 'Групповые занятия',
@@ -142,17 +145,19 @@ const ServicesPageContent = () => {
           details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
           basePriceUSD: 7.5,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
-          icon: Target
+          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          icon: Target,
+          gradient: 'from-cyan-400 to-cyan-600'
         },
         {
           title: 'Занятия в паре',
           description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
           details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
-          basePriceUSD: 11.25,
+          basePriceUSD: 12.5,
           duration: '60 мин',
-          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
-          icon: Clock
+          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          icon: Clock,
+          gradient: 'from-orange-400 to-orange-600'
         }
       ]
     },
@@ -167,29 +172,32 @@ const ServicesPageContent = () => {
           title: 'Индивидуальные занятия',
           description: 'Максимальный эффект и полное внимание тренера',
           details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
-          basePriceUSD: 18.75,
+          basePriceUSD: 17.5,
           duration: '60 мин',
-          features: ['Персональный подход', 'Гибкий график', 'Домашние задания', 'Анализ партий'],
+          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
           icon: Users,
-          popular: true
+          popular: true,
+          gradient: 'from-red-400 to-red-600'
         },
         {
           title: 'Групповые занятия',
           description: 'До 10 человек: командная динамика и турнирная практика',
           details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
-          basePriceUSD: 7.5,
+          basePriceUSD: 6.25,
           duration: '60 мин',
-          features: ['До 10 человек', 'Командная работа', 'Турниры в группе', 'Совместный анализ'],
-          icon: Target
+          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          icon: Target,
+          gradient: 'from-indigo-400 to-indigo-600'
         },
         {
           title: 'Занятия в паре',
           description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
           details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
-          basePriceUSD: 11.25,
+          basePriceUSD: 10,
           duration: '60 мин',
-          features: ['Занятия вдвоем', 'Для друзей/семьи', 'Совместное обучение', 'Гибкий график'],
-          icon: Clock
+          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          icon: Clock,
+          gradient: 'from-pink-400 to-pink-600'
         }
       ]
     }
@@ -202,7 +210,7 @@ const ServicesPageContent = () => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 bg-gradient-to-br from-background via-muted/10 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -242,17 +250,18 @@ const ServicesPageContent = () => {
         <Tabs defaultValue="kazybek" className="w-full">
           {/* Enhanced Trainer Selector */}
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-3 h-auto p-2">
+            <TabsList className="grid w-full max-w-md grid-cols-3 h-auto p-2 bg-gradient-to-r from-muted/50 to-muted/30">
               {trainers.map((trainer) => (
                 <TabsTrigger
                   key={trainer.id}
                   value={trainer.id}
-                  className={`flex flex-col items-center p-4 space-y-2 transition-all duration-200 hover:scale-105 ${
+                  className={`flex flex-col items-center p-4 space-y-2 transition-all duration-200 hover:scale-105 relative overflow-hidden ${
                     trainer.id === 'kazybek' 
-                      ? 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-600 data-[state=active]:text-black' 
-                      : 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-300 data-[state=active]:to-gray-500 data-[state=active]:text-black'
+                      ? 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-600 data-[state=active]:text-black data-[state=active]:shadow-lg' 
+                      : 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-300 data-[state=active]:to-gray-500 data-[state=active]:text-black data-[state=active]:shadow-lg'
                   }`}
                 >
+                  {trainer.id === 'kazybek' && <Sparkles className="absolute top-1 right-1 w-3 h-3 text-yellow-300" />}
                   <div className="text-2xl">{trainer.avatar}</div>
                   <div className="text-center">
                     <div className="font-semibold">{trainer.name}</div>
@@ -266,58 +275,67 @@ const ServicesPageContent = () => {
 
           {trainers.map((trainer) => (
             <TabsContent key={trainer.id} value={trainer.id} className="space-y-8">
-              {/* Service Cards */}
+              {/* Enhanced Service Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {trainer.services.map((service, index) => (
-                  <Card key={index} className="border-2 hover:shadow-lg transition-all duration-200 hover:-translate-y-1 relative">
+                  <Card key={index} className="group border-2 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden bg-gradient-to-br from-background to-muted/20">
                     {service.popular && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
-                          {t('nav.language') === 'ru' ? 'Популярно' : 'Popular'}
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                        <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                          ⭐ {t('nav.language') === 'ru' ? 'Популярно' : 'Popular'}
                         </span>
                       </div>
                     )}
-                    <CardHeader className="text-center">
-                      <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <service.icon className="w-6 h-6 text-yellow-500" />
+                    
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`} />
+                    
+                    <CardHeader className="text-center relative z-10">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <service.icon className="w-8 h-8 text-white" />
                       </div>
-                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                      <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                        {service.title}
+                      </CardTitle>
                       <CardDescription className="text-sm font-medium mb-2">
                         {service.description}
                       </CardDescription>
-                      <p className="text-xs text-muted-foreground mb-4">
+                      <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
                         {service.details}
                       </p>
-                      <div className="text-3xl font-bold text-foreground">
+                      <div className={`text-3xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                         {convertPrice(service.basePriceUSD)}{getCurrencySymbol()}
                       </div>
-                      <CardDescription className="flex items-center justify-center">
+                      <CardDescription className="flex items-center justify-center text-muted-foreground">
                         <Clock className="w-4 h-4 mr-1" />
                         {service.duration}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="relative z-10">
                       <div className="space-y-3 mb-6">
                         {service.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="text-sm">
+                          <div key={featureIndex} className="text-sm flex items-center">
+                            <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                             <span className="text-muted-foreground">{feature}</span>
                           </div>
                         ))}
                       </div>
                       <Button
-                        className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
+                        className={`w-full bg-gradient-to-r ${service.gradient} hover:opacity-90 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
                         onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
                       >
-                        {t('services.bookLesson')}
+                        🚀 {t('services.bookLesson')}
                       </Button>
                     </CardContent>
                   </Card>
                 ))}
               </div>
 
-              {/* Pricing Table */}
-              <div className="bg-muted/30 rounded-lg p-6">
-                <h3 className="text-2xl font-bold text-center mb-2">{t('services.plans')}</h3>
+              {/* Enhanced Pricing Table */}
+              <div className="bg-gradient-to-br from-muted/20 to-muted/5 rounded-xl p-6 border-2 border-muted/30">
+                <h3 className="text-2xl font-bold text-center mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  {t('services.plans')}
+                </h3>
                 <p className="text-center text-muted-foreground mb-6">
                   {t('nav.language') === 'ru' 
                     ? 'Чем больше занятий в неделю, тем больше возможностей для развития' 
@@ -327,12 +345,12 @@ const ServicesPageContent = () => {
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-muted/50">
-                        <TableHead className="w-[200px] font-bold">
+                      <TableRow className="bg-gradient-to-r from-muted/60 to-muted/40">
+                        <TableHead className="w-[200px] font-bold text-foreground">
                           {t('nav.language') === 'ru' ? 'Услуги / Количество занятий' : 'Services / Number of lessons'}
                         </TableHead>
                         {plans.map((plan) => (
-                          <TableHead key={plan.key} className="text-center min-w-[120px] font-bold">
+                          <TableHead key={plan.key} className="text-center min-w-[120px] font-bold text-foreground">
                             {t('nav.language') === 'ru' ? plan.ru : plan.en}
                           </TableHead>
                         ))}
@@ -340,24 +358,28 @@ const ServicesPageContent = () => {
                     </TableHeader>
                     <TableBody>
                       {serviceFeatures.map((feature, index) => (
-                        <TableRow key={feature.key} className={index % 2 === 0 ? 'bg-muted/20' : ''}>
-                          <TableCell className="font-medium">
+                        <TableRow key={feature.key} className={`${index % 2 === 0 ? 'bg-muted/10' : 'bg-background/50'} hover:bg-muted/20 transition-colors`}>
+                          <TableCell className="font-medium text-foreground">
                             {t('nav.language') === 'ru' ? feature.ru : feature.en}
                           </TableCell>
                           {planFeatures[feature.key].map((value, cellIndex) => (
                             <TableCell key={cellIndex} className="text-center">
                               {value === '✅' ? (
-                                <Check className="w-4 h-4 text-green-500 mx-auto" />
-                              ) : value === '❌' ? (
-                                <X className="w-4 h-4 text-red-500 mx-auto" />
-                              ) : feature.key === 'effectiveness' ? (
                                 <div className="flex justify-center">
+                                  <Check className="w-5 h-5 text-green-500 drop-shadow-sm" />
+                                </div>
+                              ) : value === '❌' ? (
+                                <div className="flex justify-center">
+                                  <X className="w-5 h-5 text-red-500 drop-shadow-sm" />
+                                </div>
+                              ) : feature.key === 'effectiveness' ? (
+                                <div className="flex justify-center gap-1">
                                   {value.split('').map((star, starIndex) => (
-                                    <Star key={starIndex} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                                    <Star key={starIndex} className="w-4 h-4 text-yellow-500 fill-yellow-500 drop-shadow-sm" />
                                   ))}
                                 </div>
                               ) : (
-                                <span className="text-sm font-medium">{value}</span>
+                                <span className="text-sm font-medium text-primary">{value}</span>
                               )}
                             </TableCell>
                           ))}
@@ -367,15 +389,19 @@ const ServicesPageContent = () => {
                   </Table>
                 </div>
                 
-                {/* Legend */}
-                <div className="flex justify-center gap-6 mt-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
+                {/* Enhanced Legend */}
+                <div className="flex justify-center gap-8 mt-6 text-sm">
+                  <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg">
                     <Check className="w-4 h-4 text-green-500" />
-                    <span>{t('nav.language') === 'ru' ? 'Услуга включена' : 'Service included'}</span>
+                    <span className="text-green-700 dark:text-green-300 font-medium">
+                      {t('nav.language') === 'ru' ? 'Услуга включена' : 'Service included'}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
                     <X className="w-4 h-4 text-red-500" />
-                    <span>{t('nav.language') === 'ru' ? 'Услуга не включена' : 'Service not included'}</span>
+                    <span className="text-red-700 dark:text-red-300 font-medium">
+                      {t('nav.language') === 'ru' ? 'Услуга не включена' : 'Service not included'}
+                    </span>
                   </div>
                 </div>
               </div>

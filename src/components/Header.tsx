@@ -46,11 +46,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-md flex items-center justify-center">
               <img 
-                src="/lovable-uploads/8e701e10-cf22-46db-b93b-0034912a19a0.png" 
+                src="/lovable-uploads/2fe25c83-27c2-4e60-bc6f-6bfa52075a6e.png" 
                 alt="Kazybek Chess" 
-                className="w-8 h-8 object-contain"
+                className="w-10 h-10 object-contain"
               />
             </div>
             <div className="flex flex-col">

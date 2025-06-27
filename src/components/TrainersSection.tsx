@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Trophy, Users, Target } from 'lucide-react';
+import { ExternalLink, Trophy, Users, Target, Crown } from 'lucide-react';
 import AnimatedCounter from './AnimatedCounter';
 
 const TrainersSection = () => {
@@ -12,24 +12,27 @@ const TrainersSection = () => {
 
   const trainers = [
     {
-      name: t('trainers.kazybek.name'),
-      title: t('trainers.kazybek.title'),
-      description: t('trainers.kazybek.description'),
+      name: '♛ Умбетов Казыбек',
+      title: 'Главный тренер, FIDE Master',
+      description: 'Главный тренер академии и единственный наставник золотого уровня с международным рейтингом и глубокой турнирной историей. С 7-летним профессиональным опытом преподавания и более 40 международными турнирами за плечами, Казыбек готовит не просто шахматистов — а чемпионов. Он обучает на русском, английском и казахском языках, адаптируя стиль преподавания под каждого ученика, от начинающих до кандидатов в мастера и международных звёзд.',
       image: '/lovable-uploads/27d4b69c-78a0-4def-8a3d-c76fb8a9e0bd.png',
       isMain: true,
       achievements: [
-        t('trainers.kazybek.achievements.fide'),
-        t('trainers.kazybek.achievements.top100'),
-        t('trainers.kazybek.achievements.tournaments'),
-        t('trainers.kazybek.achievements.students'),
-        t('trainers.kazybek.achievements.rating'),
-        t('trainers.kazybek.achievements.experience')
+        '🏆 FIDE Master по шахматам',
+        '🥇 Чемпион Казахстана 2015 года',
+        '🌍 Участник 40+ крупных международных турниров',
+        '♔ Играл против нынешнего чемпиона мира Гукеша (2018)',
+        '🏅 Входит в топ-100 шахматистов Казахстана',
+        '💻 Онлайн-рейтинг: 2700+ Lichess, 2600+ Chess.com',
+        '👨‍🎓 Подготовил 450+ учеников, включая призёров чемпионатов мира, Азии и Казахстана',
+        '📚 Автор собственных методик турнирной подготовки и психологической устойчивости'
       ],
       specialization: [
-        t('trainers.kazybek.specialization.tournament'),
-        t('trainers.kazybek.specialization.strategic'),
-        t('trainers.kazybek.specialization.endgame'),
-        t('trainers.kazybek.specialization.openings')
+        '🎯 Турнирная подготовка под ключ (от дебютов до эндшпиля)',
+        '🔍 Глубокое позиционное и стратегическое обучение',
+        '♟ Индивидуальный анализ партий и построение репертуара',
+        '⏳ Тренировка игры в цейтноте, быстрой оценки позиций',
+        '🧠 Развитие мышления чемпиона и психологической выносливости'
       ],
       profiles: [
         {
@@ -43,7 +46,7 @@ const TrainersSection = () => {
           icon: '♟'
         }
       ],
-      icon: Trophy,
+      icon: Crown,
       accentColor: 'from-yellow-400/30 to-yellow-600/30 border-yellow-500/50 bg-gradient-to-br from-yellow-50/10 to-yellow-100/20'
     },
     {
@@ -157,8 +160,8 @@ const TrainersSection = () => {
               {/* Main trainer badge */}
               {trainer.isMain && (
                 <div className="absolute top-4 right-4 z-20">
-                  <Badge className="bg-yellow-500 text-black font-bold">
-                    {t('trainers.mainTrainer')}
+                  <Badge className="bg-yellow-500 text-black font-bold animate-pulse">
+                    👑 {t('trainers.mainTrainer')}
                   </Badge>
                 </div>
               )}
@@ -169,11 +172,11 @@ const TrainersSection = () => {
               </div>
               
               <CardHeader className="text-center pb-4 relative z-10">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-muted/50 to-muted/80 flex items-center justify-center border-4 border-white/20 shadow-lg">
-                  <trainer.icon className={`w-10 h-10 ${trainer.isMain ? 'text-yellow-500' : 'text-gray-500'}`} />
+                <div className={`w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden flex items-center justify-center border-4 shadow-lg ${trainer.isMain ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 border-yellow-300' : 'bg-gradient-to-br from-muted/50 to-muted/80 border-white/20'}`}>
+                  <trainer.icon className={`w-10 h-10 ${trainer.isMain ? 'text-black' : 'text-gray-500'}`} />
                 </div>
                 <CardTitle className="text-xl font-bold">{trainer.name}</CardTitle>
-                <CardDescription className="text-sm font-medium text-primary px-3 py-1 bg-background/80 rounded-full inline-block">
+                <CardDescription className={`text-sm font-medium px-3 py-1 rounded-full inline-block ${trainer.isMain ? 'text-yellow-600 bg-yellow-100/80' : 'text-primary bg-background/80'}`}>
                   {trainer.title}
                 </CardDescription>
                 <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
@@ -254,8 +257,8 @@ const TrainersSection = () => {
                 </div>
               </CardContent>
 
-              {/* Hover overlay effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Enhanced hover overlay effect */}
+              <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${trainer.isMain ? 'from-yellow-500/5 to-transparent' : 'from-background/5 to-transparent'}`} />
             </Card>
           ))}
         </div>

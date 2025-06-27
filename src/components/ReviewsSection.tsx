@@ -12,6 +12,7 @@ const ReviewsSection = () => {
   const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
 
+  // All 38 reviews for Kazybek
   const reviews = [
     {
       trainer: 'kazybek',
@@ -438,8 +439,16 @@ const ReviewsSection = () => {
 
         <Tabs defaultValue="kazybek" className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-1">
-              <TabsTrigger value="kazybek">{t('reviews.kazybek')}</TabsTrigger>
+            <TabsList className="grid w-full max-w-lg grid-cols-3">
+              <TabsTrigger value="kazybek" className="data-[state=active]:bg-yellow-500 data-[state=active]:text-black">
+                👑 {t('reviews.kazybek')}
+              </TabsTrigger>
+              <TabsTrigger value="amir" className="data-[state=active]:bg-gray-400 data-[state=active]:text-black">
+                🎯 Амир
+              </TabsTrigger>
+              <TabsTrigger value="tamerlan" className="data-[state=active]:bg-gray-400 data-[state=active]:text-black">
+                ⚡ Тамерлан
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -554,6 +563,52 @@ const ReviewsSection = () => {
                 </Button>
               </div>
             )}
+          </TabsContent>
+
+          <TabsContent value="amir" className="space-y-8">
+            <div className="text-center py-16">
+              <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-12 h-12 text-gray-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                {t('nav.language') === 'ru' ? 'Отзывы пока недоступны' : 'Reviews not available yet'}
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                {t('nav.language') === 'ru' 
+                  ? 'Тренер Амир только начинает работать с нашей платформой. Отзывы от учеников появятся в ближайшее время.' 
+                  : 'Trainer Amir is just starting to work with our platform. Student reviews will appear soon.'
+                }
+              </p>
+              <Button
+                className="bg-gray-500 hover:bg-gray-600 text-white"
+                onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
+              >
+                {t('nav.language') === 'ru' ? 'Записаться на урок' : 'Book a lesson'}
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="tamerlan" className="space-y-8">
+            <div className="text-center py-16">
+              <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-12 h-12 text-gray-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                {t('nav.language') === 'ru' ? 'Отзывы пока недоступны' : 'Reviews not available yet'}
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                {t('nav.language') === 'ru' 
+                  ? 'Тренер Тамерлан только начинает работать с нашей платформой. Отзывы от учеников появятся в ближайшее время.' 
+                  : 'Trainer Tamerlan is just starting to work with our platform. Student reviews will appear soon.'
+                }
+              </p>
+              <Button
+                className="bg-gray-500 hover:bg-gray-600 text-white"
+                onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
+              >
+                {t('nav.language') === 'ru' ? 'Записаться на урок' : 'Book a lesson'}
+              </Button>
+            </div>
           </TabsContent>
         </Tabs>
       </div>
