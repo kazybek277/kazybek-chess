@@ -37,12 +37,7 @@ const Hero = () => {
           </div>
 
           {/* Title */}
-          <div className="space-y-6 mb-12">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border-2 border-yellow-500/30 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm shadow-lg fancy-border">
-              <Trophy className="w-5 h-5 mr-2" />
-              {t('hero.badge')}
-            </div>
-            
+          <div className="space-y-6 mb-12">            
             <div className="fancy-border p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-2xl">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
                 <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">

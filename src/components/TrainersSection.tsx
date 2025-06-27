@@ -10,6 +10,18 @@ import AnimatedCounter from './AnimatedCounter';
 const TrainersSection = () => {
   const { t } = useLanguage();
 
+  const trophyImages = [
+    '/lovable-uploads/1e9ce55b-f7e1-4c12-803f-ae1ac6fb4b4e.png',
+    '/lovable-uploads/83a3c8e8-0ec0-42f7-b82e-caf8ad92396b.png',
+    '/lovable-uploads/2f660698-7297-4b74-837c-eab331bfaa90.png',
+    '/lovable-uploads/0db739a4-0cba-4384-af27-ef673467514b.png',
+    '/lovable-uploads/c21b98f0-16ab-439a-8d9b-d9839940bb3b.png',
+    '/lovable-uploads/910efa9d-1959-4d06-b112-0b366e537098.png',
+    '/lovable-uploads/2cb8d5d9-1dc9-4116-9e6d-d82dd80d1111.png',
+    '/lovable-uploads/3cc7401c-ac5c-4d84-8d29-36fe24b678bd.png',
+    '/lovable-uploads/d73a7086-9fd5-4b21-96a8-44449c7875d6.png'
+  ];
+
   const trainers = [
     {
       name: '♛ Умбетов Казыбек',
@@ -151,6 +163,43 @@ const TrainersSection = () => {
               <AnimatedCounter end={5} />
             </div>
             <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.rating')}</p>
+          </div>
+        </div>
+
+        {/* Achievement Gallery Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm mb-4">
+              <Trophy className="w-4 h-4 mr-2" />
+              Галерея достижений
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Кубки и награды Казыбека
+            </h2>
+            <p className="text-muted-foreground">
+              Коллекция наград и трофеев, завоёванных на международных турнирах
+            </p>
+          </div>
+          
+          <div className="fancy-border p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl">
+            <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
+              {trophyImages.map((trophy, index) => (
+                <div 
+                  key={index}
+                  className="group relative bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20 hover:border-yellow-500/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <div className="aspect-square overflow-hidden rounded-lg">
+                    <img 
+                      src={trophy} 
+                      alt={`Trophy ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={{ pointerEvents: 'none', userSelect: 'none' }}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
