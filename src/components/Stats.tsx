@@ -46,18 +46,30 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-gradient-to-br from-muted/20 to-muted/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Наши достижения в цифрах
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Результаты, которыми мы гордимся
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-xl bg-background shadow-sm border border-border hover:shadow-md transition-shadow duration-300"
+                className="text-center p-6 rounded-xl bg-gradient-to-br from-background/80 to-background/60 shadow-lg border-2 border-white/20 hover:shadow-xl transition-all duration-300 hover:scale-105 fancy-border backdrop-blur-sm"
               >
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg mb-4 ${stat.color} bg-current/10`}>
-                  <IconComponent className={`w-6 h-6 ${stat.color}`} />
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 ${stat.color} bg-current/20 border-2 border-current/30`}>
+                  <IconComponent className={`w-8 h-8 ${stat.color}`} />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />

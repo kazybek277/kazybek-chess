@@ -148,9 +148,9 @@
   /* Beautiful borders and frames */
   .fancy-border {
     position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(15px);
     border: 2px solid transparent;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(10px);
   }
 
   .fancy-border::before {
@@ -158,10 +158,40 @@
     position: absolute;
     inset: 0;
     padding: 2px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.3), 
+      rgba(255, 193, 7, 0.2), 
+      rgba(255, 255, 255, 0.1)
+    );
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
+    -webkit-mask-composite: xor;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient borders */
+  .gradient-border {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 2px solid;
+    border-image: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 255, 255, 0.3)) 1;
+  }
+
+  /* Beautiful section styling */
+  .section-fancy {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      rgba(255, 193, 7, 0.02) 50%, 
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -174,4 +204,33 @@ html {
 *:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+}
+
+/* Page-specific beautiful styling */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.02) 0%, 
+    rgba(255, 193, 7, 0.01) 50%, 
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.content-section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 100%
+  );
 }
