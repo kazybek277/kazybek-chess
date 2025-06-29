@@ -125,15 +125,45 @@ const ContactsPageContent = () => {
           </div>
         </div>
 
+        {/* Profi.ru Links */}
+        <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border-2 border-orange-500/20 rounded-xl p-8 mb-8 fancy-border backdrop-blur-sm">
+          <div className="flex items-center justify-center mb-6">
+            <Globe className="w-6 h-6 text-orange-500 mr-3" />
+            <h3 className="text-2xl font-semibold text-foreground">📋 Профи.ру профили</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
+              <h4 className="text-lg font-semibold text-foreground mb-2">Основной профиль</h4>
+              <p className="text-muted-foreground mb-3">Profi.ru основной аккаунт</p>
+              <Button
+                variant="outline"
+                onClick={() => window.open('https://profi.ru/profile/UmbetovKT3/', '_blank')}
+              >
+                🔗 UmbetovKT3
+              </Button>
+            </div>
+            <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
+              <h4 className="text-lg font-semibold text-foreground mb-2">Дополнительный профиль</h4>
+              <p className="text-muted-foreground mb-3">Profi.ru дополнительный аккаунт</p>
+              <Button
+                variant="outline"
+                onClick={() => window.open('https://profi.ru/profile/UmbetovKT2/', '_blank')}
+              >
+                🔗 UmbetovKT2
+              </Button>
+            </div>
+          </div>
+        </div>
+
         {/* Chess Profiles */}
         <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 border-2 border-yellow-500/20 rounded-xl p-8 mb-8 fancy-border backdrop-blur-sm">
           <div className="flex items-center justify-center mb-6">
             <Globe className="w-6 h-6 text-yellow-500 mr-3" />
-            <h3 className="text-2xl font-semibold text-foreground">♟ Мои профили на шахматных платформах</h3>
+            <h3 className="text-2xl font-semibold text-foreground">♟ Шахматные профили тренеров</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
-              <h4 className="text-lg font-semibold text-foreground mb-2">Lichess</h4>
+              <h4 className="text-lg font-semibold text-foreground mb-2">Lichess Казыбек</h4>
               <p className="text-muted-foreground mb-3">Игровой профиль</p>
               <Button
                 variant="outline"
@@ -143,7 +173,7 @@ const ContactsPageContent = () => {
               </Button>
             </div>
             <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
-              <h4 className="text-lg font-semibold text-foreground mb-2">Chess.com</h4>
+              <h4 className="text-lg font-semibold text-foreground mb-2">Chess.com Казыбек</h4>
               <p className="text-muted-foreground mb-3">Игровой профиль</p>
               <Button
                 variant="outline"
@@ -152,10 +182,30 @@ const ContactsPageContent = () => {
                 🔗 bale1290
               </Button>
             </div>
+            <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
+              <h4 className="text-lg font-semibold text-foreground mb-2">Lichess Тамерлан</h4>
+              <p className="text-muted-foreground mb-3">Игровой профиль</p>
+              <Button
+                variant="outline"
+                onClick={() => window.open('https://lichess.org/@/Tamerlan_269', '_blank')}
+              >
+                🔗 Tamerlan_269
+              </Button>
+            </div>
+            <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
+              <h4 className="text-lg font-semibold text-foreground mb-2">Chess.com Тамерлан</h4>
+              <p className="text-muted-foreground mb-3">Скоро будет добавлен</p>
+              <Button
+                variant="outline"
+                disabled
+              >
+                🔗 Скоро
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Lichess Community Section - NEW */}
+        {/* Lichess Community Section */}
         <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border-2 border-purple-500/20 rounded-xl p-8 fancy-border backdrop-blur-sm">
           <div className="flex items-center justify-center mb-6">
             <Globe className="w-6 h-6 text-purple-500 mr-3" />
