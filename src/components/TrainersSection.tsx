@@ -127,47 +127,49 @@ const TrainersSection = () => {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Header */}
+        {/* Header - CENTERED */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm mb-6">
             <Trophy className="w-4 h-4 mr-2" />
             Наша команда
           </div>
-          <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl">
+          <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {t('trainers.title')}
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground">
               {t('trainers.subtitle')}
             </p>
           </div>
         </div>
 
-        {/* Team Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
-          <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
-            <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
-              <AnimatedCounter end={500} suffix="+" />
+        {/* Team Stats - CENTERED */}
+        <div className="flex justify-center mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl">
+            <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
+              <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
+                <AnimatedCounter end={500} suffix="+" />
+              </div>
+              <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.students')}</p>
             </div>
-            <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.students')}</p>
-          </div>
-          <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
-            <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
-              <AnimatedCounter end={16} suffix="+" />
+            <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
+              <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
+                <AnimatedCounter end={16} suffix="+" />
+              </div>
+              <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.experience')}</p>
             </div>
-            <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.experience')}</p>
-          </div>
-          <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
-            <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
-              <AnimatedCounter end={350} suffix="+" />
+            <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
+              <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
+                <AnimatedCounter end={350} suffix="+" />
+              </div>
+              <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.tournaments')}</p>
             </div>
-            <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.tournaments')}</p>
-          </div>
-          <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
-            <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
-              <AnimatedCounter end={5} />
+            <div className="text-center p-4 md:p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 fancy-border">
+              <div className="text-2xl md:text-3xl font-bold text-yellow-500 mb-2">
+                <AnimatedCounter end={5} />
+              </div>
+              <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.rating')}</p>
             </div>
-            <p className="text-xs md:text-sm text-muted-foreground">{t('trainers.stats.rating')}</p>
           </div>
         </div>
 
@@ -286,14 +288,14 @@ const TrainersSection = () => {
           ))}
         </div>
 
-        {/* Achievement Gallery Section - MOVED HERE AFTER TRAINER CARDS */}
+        {/* Achievement Gallery Section - CENTERED */}
         <div className="mb-16">
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm mb-4">
               <Trophy className="w-4 h-4 mr-2" />
               Галерея достижений
             </div>
-            <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl">
+            <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Кубки и награды Казыбека
               </h2>
@@ -303,31 +305,33 @@ const TrainersSection = () => {
             </div>
           </div>
           
-          <div className="fancy-border p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl">
-            <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
-              {trophyImages.map((trophy, index) => (
-                <div 
-                  key={index}
-                  className="group relative bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20 hover:border-yellow-500/40 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <div className="aspect-square overflow-hidden rounded-lg">
-                    <img 
-                      src={trophy} 
-                      alt={`Trophy ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      style={{ pointerEvents: 'none', userSelect: 'none' }}
-                    />
+          <div className="flex justify-center">
+            <div className="fancy-border p-6 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl max-w-5xl">
+              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                {trophyImages.map((trophy, index) => (
+                  <div 
+                    key={index}
+                    className="group relative bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20 hover:border-yellow-500/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <div className="aspect-square overflow-hidden rounded-lg">
+                      <img 
+                        src={trophy} 
+                        alt={`Trophy ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        style={{ pointerEvents: 'none', userSelect: 'none' }}
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none" />
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Telegram Bot Section */}
-        <div className="mb-8 text-center">
-          <div className="bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 p-6 md:p-8 fancy-border">
+        {/* Telegram Bot Section - CENTERED */}
+        <div className="mb-8 flex justify-center">
+          <div className="bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl border border-white/10 p-6 md:p-8 fancy-border text-center max-w-2xl">
             <h3 className="text-xl md:text-2xl font-bold mb-4">{t('trainers.botTitle')}</h3>
             <p className="text-muted-foreground mb-6 text-sm md:text-base">{t('trainers.botDescription')}</p>
             <Button
@@ -340,9 +344,9 @@ const TrainersSection = () => {
           </div>
         </div>
 
-        {/* Telegram Channel Section */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl border border-blue-200/50 p-4 md:p-6 fancy-border">
+        {/* Telegram Channel Section - CENTERED */}
+        <div className="flex justify-center">
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl border border-blue-200/50 p-4 md:p-6 fancy-border text-center max-w-2xl">
             <h3 className="text-lg md:text-xl font-bold mb-2">
               📢 {t('nav.language') === 'ru' ? 'Подписывайтесь на наш Telegram-канал!' : 'Subscribe to our Telegram channel!'}
             </h3>

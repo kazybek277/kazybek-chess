@@ -3,9 +3,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, Play, Star, Trophy, Users, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const stats = [
     { icon: Users, value: '500+', label: 'Учеников обучено' },
@@ -91,7 +93,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               className="group border-2 border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-foreground font-semibold px-8 py-4 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate('/services')}
             >
               <Play className="w-5 h-5 mr-2" />
               Смотреть услуги
