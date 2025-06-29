@@ -8,10 +8,10 @@ const Hero = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Users, value: '500+', label: t('hero.stats.students') },
-    { icon: Trophy, value: '16+', label: t('hero.stats.experience') },
-    { icon: Target, value: '350+', label: t('hero.stats.tournaments') },
-    { icon: Star, value: '5.0', label: t('hero.stats.rating') }
+    { icon: Users, value: '500+', label: 'Учеников обучено' },
+    { icon: Trophy, value: '16+', label: 'Лет опыта' },
+    { icon: Target, value: '350+', label: 'Турниров сыграно' },
+    { icon: Star, value: '5.0', label: 'Средняя оценка' }
   ];
 
   return (
@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="mb-8">
             <div className="inline-flex items-center justify-center p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl mb-6 fancy-border">
               <img 
-                src="/lovable-uploads/7224ef05-a125-4e64-8c6e-2feb7b4ad392.png" 
+                src="/lovable-uploads/8e701e10-cf22-46db-b93b-0034912a19a0.png" 
                 alt="Kazybek Chess" 
                 className="w-24 h-24 md:w-32 md:h-32 object-contain"
               />

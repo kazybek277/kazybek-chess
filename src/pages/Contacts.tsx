@@ -10,9 +10,11 @@ const Contacts = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-gradient-to-br from-background via-background/80 to-muted/30 relative">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
           <Header />
-          <main className="pt-16">
+          <main className="pt-16 relative">
             <ContactsPageContent />
           </main>
           <Footer />
