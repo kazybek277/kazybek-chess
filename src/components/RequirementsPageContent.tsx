@@ -4,55 +4,43 @@ import { Monitor, Wifi, Video, BookOpen, Heart, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const RequirementsPageContent = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const requirements = [
     {
       icon: Monitor,
-      title: 'Компьютер или устройство',
-      titleEn: 'Computer or device',
-      description: 'Компьютер, планшет или смартфон с камерой и микрофоном для видеосвязи',
-      descriptionEn: 'Computer, tablet or smartphone with camera and microphone for video calls',
+      title: language === 'ru' ? 'Компьютер или устройство' : 'Computer or device',
+      description: language === 'ru' ? 'Компьютер, планшет или смартфон с камерой и микрофоном для видеосвязи' : 'Computer, tablet or smartphone with camera and microphone for video calls',
       color: 'text-blue-500'
     },
     {
       icon: Wifi,
-      title: 'Стабильный интернет',
-      titleEn: 'Stable internet',
-      description: 'Хорошее соединение для комфортного проведения онлайн-уроков',
-      descriptionEn: 'Good connection for comfortable online lessons',
+      title: language === 'ru' ? 'Стабильный интернет' : 'Stable internet',
+      description: language === 'ru' ? 'Хорошее соединение для комфортного проведения онлайн-уроков' : 'Good connection for comfortable online lessons',
       color: 'text-green-500'
     },
     {
       icon: Video,
       title: 'Google Meet / Microsoft Teams',
-      titleEn: 'Google Meet / Microsoft Teams',
-      description: 'Аккаунт Google или Microsoft для проведения видеоуроков',
-      descriptionEn: 'Google or Microsoft account for video lessons',
+      description: language === 'ru' ? 'Аккаунт Google или Microsoft для проведения видеоуроков' : 'Google or Microsoft account for video lessons',
       color: 'text-purple-500'
     },
     {
       icon: BookOpen,
-      title: 'Тетрадь и ручка',
-      titleEn: 'Notebook and pen',
-      description: 'Для записи важных моментов и выполнения заданий (желательно)',
-      descriptionEn: 'For taking notes and completing tasks (recommended)',
+      title: language === 'ru' ? 'Тетрадь и ручка' : 'Notebook and pen',
+      description: language === 'ru' ? 'Для записи важных моментов и выполнения заданий (желательно)' : 'For taking notes and completing tasks (recommended)',
       color: 'text-orange-500'
     },
     {
       icon: Users,
-      title: 'Шахматная платформа',
-      titleEn: 'Chess platform',
-      description: 'Аккаунт на Lichess.org или Chess.com для практических занятий',
-      descriptionEn: 'Account on Lichess.org or Chess.com for practical lessons',
+      title: language === 'ru' ? 'Шахматная платформа' : 'Chess platform',
+      description: language === 'ru' ? 'Аккаунт на Lichess.org или Chess.com для практических занятий' : 'Account on Lichess.org or Chess.com for practical lessons',
       color: 'text-red-500'
     },
     {
       icon: Heart,
-      title: 'Желание развиваться',
-      titleEn: 'Desire to improve',
-      description: 'Мотивация и готовность учиться новому в мире шахмат',
-      descriptionEn: 'Motivation and readiness to learn new things in the world of chess',
+      title: language === 'ru' ? 'Желание развиваться' : 'Desire to improve',
+      description: language === 'ru' ? 'Мотивация и готовность учиться новому в мире шахмат' : 'Motivation and readiness to learn new things in the world of chess',
       color: 'text-pink-500'
     }
   ];
@@ -63,10 +51,10 @@ const RequirementsPageContent = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Что потребуется для шахматных занятий онлайн
+            {language === 'ru' ? 'Что потребуется для шахматных занятий онлайн' : 'What You Need for Online Chess Lessons'}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Всё, что нужно для успешного обучения шахматам в онлайн-формате
+            {language === 'ru' ? 'Всё, что нужно для успешного обучения шахматам в онлайн-формате' : 'Everything you need for successful online chess learning'}
           </p>
         </div>
 
@@ -96,24 +84,26 @@ const RequirementsPageContent = () => {
         {/* Additional Info */}
         <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-8 text-center">
           <h3 className="text-2xl font-semibold text-foreground mb-4">
-            Начните уже сегодня!
+            {language === 'ru' ? 'Начните уже сегодня!' : 'Start today!'}
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Все наши программы адаптируются под ваш уровень подготовки - от полных новичков до опытных игроков. 
-            Запишитесь на пробное занятие и убедитесь в эффективности нашей методики.
+            {language === 'ru' 
+              ? 'Все наши программы адаптируются под ваш уровень подготовки - от полных новичков до опытных игроков. Запишитесь на пробное занятие и убедитесь в эффективности нашей методики.'
+              : 'All our programs are adapted to your skill level - from complete beginners to experienced players. Sign up for a trial lesson and see the effectiveness of our methodology.'
+            }
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => window.open('https://t.me/ChessBeast_1', '_blank')}
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-lg transition-colors"
             >
-              Записаться на пробный урок
+              {language === 'ru' ? 'Записаться на пробный урок' : 'Book a trial lesson'}
             </button>
             <button
               onClick={() => window.open('https://api.whatsapp.com/send/?phone=77759993644&text&type=phone_number&app_absent=0', '_blank')}
               className="border border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
-              Написать в WhatsApp
+              {language === 'ru' ? 'Написать в WhatsApp' : 'Write on WhatsApp'}
             </button>
           </div>
         </div>

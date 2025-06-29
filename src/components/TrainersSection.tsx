@@ -24,27 +24,24 @@ const TrainersSection = () => {
 
   const trainers = [
     {
-      name: '♛ Умбетов Казыбек',
-      title: 'Главный тренер, FIDE Master',
-      description: 'Главный тренер академии и единственный наставник золотого уровня с международным рейтингом и глубокой турнирной историей. С 7-летним профессиональным опытом преподавания и более 40 международными турнирами за плечами, Казыбек готовит не просто шахматистов — а чемпионов. Он обучает на русском, английском и казахском языках, адаптируя стиль преподавания под каждого ученика, от начинающих до кандидатов в мастера и международных звёзд.',
+      name: t('trainers.kazybek.name'),
+      title: t('trainers.kazybek.title'),
+      description: t('trainers.kazybek.description'),
       image: '/lovable-uploads/27d4b69c-78a0-4def-8a3d-c76fb8a9e0bd.png',
       isMain: true,
       achievements: [
-        '🏆 FIDE Master по шахматам',
-        '🥇 Чемпион Казахстана 2015 года',
-        '🌍 Участник 40+ крупных международных турниров',
-        '♔ Играл против нынешнего чемпиона мира Гукеша (2018)',
-        '🏅 Входит в топ-100 шахматистов Казахстана',
-        '💻 Онлайн-рейтинг: 2700+ Lichess, 2600+ Chess.com',
-        '👨‍🎓 Подготовил 450+ учеников, включая призёров чемпионатов мира, Азии и Казахстана',
-        '📚 Автор собственных методик турнирной подготовки и психологической устойчивости'
+        t('trainers.kazybek.achievements.fide'),
+        t('trainers.kazybek.achievements.top100'),
+        t('trainers.kazybek.achievements.tournaments'),
+        t('trainers.kazybek.achievements.students'),
+        t('trainers.kazybek.achievements.rating'),
+        t('trainers.kazybek.achievements.experience')
       ],
       specialization: [
-        '🎯 Турнирная подготовка под ключ (от дебютов до эндшпиля)',
-        '🔍 Глубокое позиционное и стратегическое обучение',
-        '♟ Индивидуальный анализ партий и построение репертуара',
-        '⏳ Тренировка игры в цейтноте, быстрой оценки позиций',
-        '🧠 Развитие мышления чемпиона и психологической выносливости'
+        t('trainers.kazybek.specialization.tournament'),
+        t('trainers.kazybek.specialization.strategic'),
+        t('trainers.kazybek.specialization.endgame'),
+        t('trainers.kazybek.specialization.openings')
       ],
       profiles: [
         {
@@ -62,24 +59,25 @@ const TrainersSection = () => {
       accentColor: 'from-yellow-400/30 to-yellow-600/30 border-yellow-500/50 bg-gradient-to-br from-yellow-50/10 to-yellow-100/20'
     },
     {
-      name: '🧠 Амир Хасенов',
-      title: 'Старший тренер, Кандидат в мастера спорта (КМС)',
-      description: 'Тренер с международным шахматным и академическим бэкграундом. Выпускник британских учебных заведений и призёр многих турниров, Амир успешно сочетает европейскую школу мышления с казахстанской системой подготовки. Идеален для тех, кто хочет уверенно расти в группе или командной среде.',
+      name: t('trainers.amir.name'),
+      title: t('trainers.amir.title'),
+      description: t('trainers.amir.description'),
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
       isMain: false,
       achievements: [
-        '🏆 Ученики — чемпионы Казахстана и призёры международных турниров',
-        '🎓 Oxford International School (UK)',
-        '🎓 Aston University (UK)',
-        '🌐 Владеет английским, русским и казахским языками',
-        '📚 Системный подход и упор на развитие уверенности и тактического чутья'
+        t('trainers.amir.achievements.asia'),
+        t('trainers.amir.achievements.champion'),
+        t('trainers.amir.achievements.city'),
+        t('trainers.amir.achievements.world'),
+        t('trainers.amir.achievements.experience'),
+        t('trainers.amir.achievements.teaching'),
+        t('trainers.amir.achievements.students')
       ],
       specialization: [
-        '👥 Групповые и командные занятия (идеально для 2–4 человек)',
-        '⚡ Блиц, комбинации, тактика',
-        '🎯 Подготовка до КМС, I–IV разрядов',
-        '💬 Лёгкое объяснение сложных идей на доступном языке',
-        '🛡 Развитие уверенности, дисциплины и самостоятельного мышления'
+        t('trainers.amir.specialization.group'),
+        t('trainers.amir.specialization.tactics'),
+        t('trainers.amir.specialization.preparation'),
+        t('trainers.amir.specialization.confidence')
       ],
       profiles: [
         {
@@ -92,22 +90,24 @@ const TrainersSection = () => {
       accentColor: 'from-blue-400/30 to-blue-600/30 border-blue-500/50 bg-gradient-to-br from-blue-50/10 to-blue-100/20'
     },
     {
-      name: '🧠 Тамерлан Хасенов',
-      title: 'Серебряный тренер, Кандидат в мастера спорта',
-      description: 'Спокойный, терпеливый и системный наставник, который помогает ученикам открыть свой стиль игры и уверенно прогрессировать. Тамерлан — идеальный выбор для начинающих, младших школьников и всех, кто хочет научиться мыслить глубоко, но без стресса.',
+      name: t('trainers.tamerlan.name'),
+      title: t('trainers.tamerlan.title'),
+      description: t('trainers.tamerlan.description'),
       image: '/lovable-uploads/7c292e74-5e52-490b-8a0d-7f74b2c38bca.png',
       isMain: false,
       achievements: [
-        '🏆 Призёр городских и республиканских турниров',
-        '🕹 15+ лет игровой практики и более 9 лет преподавания',
-        '🎯 Специализация — в развитии дебютного понимания и работе над типичными ошибками'
+        t('trainers.tamerlan.achievements.kms'),
+        t('trainers.tamerlan.achievements.prizewinner'),
+        t('trainers.tamerlan.achievements.city'),
+        t('trainers.tamerlan.achievements.experience'),
+        t('trainers.tamerlan.achievements.teaching'),
+        t('trainers.tamerlan.achievements.students')
       ],
       specialization: [
-        '👦 Занятия с детьми и начинающими',
-        '⏳ Обучение с нуля: от фигур до комбинаций',
-        '🔍 Разбор типичных ошибок и психологическая поддержка',
-        '♟ Медленный темп + закрепление материала',
-        '🧩 Построение фундаментального мышления'
+        t('trainers.tamerlan.specialization.children'),
+        t('trainers.tamerlan.specialization.positional'),
+        t('trainers.tamerlan.specialization.pair'),
+        t('trainers.tamerlan.specialization.analysis')
       ],
       profiles: [
         {
@@ -131,7 +131,7 @@ const TrainersSection = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm mb-6">
             <Trophy className="w-4 h-4 mr-2" />
-            Наша команда
+            {t('nav.language') === 'ru' ? 'Наша команда' : 'Our Team'}
           </div>
           <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -195,11 +195,11 @@ const TrainersSection = () => {
               </div>
               
               <CardHeader className="text-center pb-4 relative z-10">
-                <div className={`w-16 md:w-20 h-16 md:h-20 mx-auto mb-4 rounded-full overflow-hidden flex items-center justify-center border-4 shadow-lg ${trainer.isMain ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 border-yellow-300' : trainer.name.includes('Амир') ? 'bg-gradient-to-br from-blue-400 to-blue-600 border-blue-300' : 'bg-gradient-to-br from-green-400 to-green-600 border-green-300'}`}>
+                <div className={`w-16 md:w-20 h-16 md:h-20 mx-auto mb-4 rounded-full overflow-hidden flex items-center justify-center border-4 shadow-lg ${trainer.isMain ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 border-yellow-300' : trainer.name.includes('Амир') || trainer.name.includes('Amir') ? 'bg-gradient-to-br from-blue-400 to-blue-600 border-blue-300' : 'bg-gradient-to-br from-green-400 to-green-600 border-green-300'}`}>
                   <trainer.icon className={`w-8 md:w-10 h-8 md:h-10 ${trainer.isMain ? 'text-black' : 'text-white'}`} />
                 </div>
                 <CardTitle className="text-lg md:text-xl font-bold">{trainer.name}</CardTitle>
-                <CardDescription className={`text-xs md:text-sm font-medium px-3 py-1 rounded-full inline-block ${trainer.isMain ? 'text-yellow-600 bg-yellow-100/80' : trainer.name.includes('Амир') ? 'text-blue-600 bg-blue-100/80' : 'text-green-600 bg-green-100/80'}`}>
+                <CardDescription className={`text-xs md:text-sm font-medium px-3 py-1 rounded-full inline-block ${trainer.isMain ? 'text-yellow-600 bg-yellow-100/80' : trainer.name.includes('Амир') || trainer.name.includes('Amir') ? 'text-blue-600 bg-blue-100/80' : 'text-green-600 bg-green-100/80'}`}>
                   {trainer.title}
                 </CardDescription>
                 <p className="text-xs md:text-sm text-muted-foreground mt-3 leading-relaxed">
@@ -216,7 +216,7 @@ const TrainersSection = () => {
                   <div className="space-y-2">
                     {trainer.achievements.map((achievement, achievementIndex) => (
                       <div key={achievementIndex} className="flex items-start text-xs md:text-sm">
-                        <div className={`w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 ${trainer.isMain ? 'bg-yellow-500' : trainer.name.includes('Амир') ? 'bg-blue-500' : 'bg-green-500'}`} />
+                        <div className={`w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 ${trainer.isMain ? 'bg-yellow-500' : trainer.name.includes('Амир') || trainer.name.includes('Amir') ? 'bg-blue-500' : 'bg-green-500'}`} />
                         <span className="text-muted-foreground leading-relaxed">{achievement}</span>
                       </div>
                     ))}
@@ -271,7 +271,7 @@ const TrainersSection = () => {
                     className={`w-full font-bold py-3 text-sm md:text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 ${
                       trainer.isMain 
                         ? 'bg-yellow-500 hover:bg-yellow-600 text-black' 
-                        : trainer.name.includes('Амир')
+                        : trainer.name.includes('Амир') || trainer.name.includes('Amir')
                         ? 'bg-blue-500 hover:bg-blue-600 text-white'
                         : 'bg-green-500 hover:bg-green-600 text-white'
                     }`}
@@ -283,7 +283,7 @@ const TrainersSection = () => {
               </CardContent>
 
               {/* Enhanced hover overlay effect */}
-              <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${trainer.isMain ? 'from-yellow-500/5 to-transparent' : trainer.name.includes('Амир') ? 'from-blue-500/5 to-transparent' : 'from-green-500/5 to-transparent'}`} />
+              <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${trainer.isMain ? 'from-yellow-500/5 to-transparent' : trainer.name.includes('Амир') || trainer.name.includes('Amir') ? 'from-blue-500/5 to-transparent' : 'from-green-500/5 to-transparent'}`} />
             </Card>
           ))}
         </div>
@@ -293,14 +293,14 @@ const TrainersSection = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-full text-yellow-600 text-sm font-medium backdrop-blur-sm mb-4">
               <Trophy className="w-4 h-4 mr-2" />
-              Галерея достижений
+              {t('nav.language') === 'ru' ? 'Галерея достижений' : 'Achievement Gallery'}
             </div>
             <div className="fancy-border inline-block p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-xl max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                Кубки и награды Казыбека
+                {t('nav.language') === 'ru' ? 'Кубки и награды Казыбека' : 'Kazybek\'s Cups and Awards'}
               </h2>
               <p className="text-muted-foreground">
-                Коллекция наград и трофеев, завоёванных на международных турнирах
+                {t('nav.language') === 'ru' ? 'Коллекция наград и трофеев, завоёванных на международных турнирах' : 'Collection of awards and trophies won at international tournaments'}
               </p>
             </div>
           </div>

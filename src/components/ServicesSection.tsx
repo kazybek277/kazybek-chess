@@ -7,74 +7,94 @@ import TrainerInfo from './TrainerInfo';
 import ServicesGrid from './ServicesGrid';
 
 const ServicesSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedTrainer, setSelectedTrainer] = useState('kazybek');
 
   const trainers = [
-    { id: 'kazybek', name: 'Казыбек (FM)' },
-    { id: 'amir', name: 'Амир (КМС)' },
-    { id: 'tamerlan', name: 'Тамерлан (КМС)' }
+    { id: 'kazybek', name: language === 'ru' ? 'Казыбек (FM)' : 'Kazybek (FM)' },
+    { id: 'amir', name: language === 'ru' ? 'Амир (КМС)' : 'Amir (CMS)' },
+    { id: 'tamerlan', name: language === 'ru' ? 'Тамерлан (КМС)' : 'Tamerlan (CMS)' }
   ];
 
   const services = {
     kazybek: {
-      name: 'Умбетов Казыбек',
-      title: 'Главный тренер, FIDE Мастер',
-      description: 'Максимальный эффект и полное внимание тренера',
+      name: language === 'ru' ? 'Умбетов Казыбек' : 'Umbetov Kazybek',
+      title: language === 'ru' ? 'Главный тренер, FIDE Мастер' : 'Head Trainer, FIDE Master',
+      description: language === 'ru' ? 'Максимальный эффект и полное внимание тренера' : 'Maximum effect and full trainer attention',
       services: [
         {
-          type: 'Индивидуальные занятия',
+          type: language === 'ru' ? 'Индивидуальные занятия' : 'Individual lessons',
           price: '10 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'Персональный подход',
             'Гибкий график',
             'Домашние задания',
             'Анализ партий'
+          ] : [
+            'Personal approach',
+            'Flexible schedule',
+            'Homework assignments',
+            'Game analysis'
           ],
           icon: Users,
           popular: true
         },
         {
-          type: 'Турнирная подготовка',
+          type: language === 'ru' ? 'Турнирная подготовка' : 'Tournament preparation',
           price: '15 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'Доступны интенсивы',
             'Спарринги',
             'Разборы партий',
             'Совместный анализ'
+          ] : [
+            'Intensive courses available',
+            'Sparring sessions',
+            'Game reviews',
+            'Joint analysis'
           ],
           icon: Clock
         }
       ]
     },
     amir: {
-      name: 'Сатыбалды Амир',
-      title: 'Старший тренер, КМС',
-      description: 'До 4 человек: командная динамика и турнирная практика',
+      name: language === 'ru' ? 'Сатыбалды Амир' : 'Satybaldy Amir',
+      title: language === 'ru' ? 'Старший тренер, КМС' : 'Senior Trainer, CMS',
+      description: language === 'ru' ? 'До 4 человек: командная динамика и турнирная практика' : 'Up to 4 people: team dynamics and tournament practice',
       services: [
         {
-          type: 'Индивидуальные занятия',
+          type: language === 'ru' ? 'Индивидуальные занятия' : 'Individual lessons',
           price: '7 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'Персональный подход',
             'Гибкий график',
             'Домашние задания',
             'Анализ партий'
+          ] : [
+            'Personal approach',
+            'Flexible schedule',
+            'Homework assignments',
+            'Game analysis'
           ],
           icon: Users
         },
         {
-          type: 'Групповые занятия',
+          type: language === 'ru' ? 'Групповые занятия' : 'Group lessons',
           price: '5 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'До 4 человек',
             'Командная работа',
             'Турниры в группе',
             'Совместный анализ'
+          ] : [
+            'Up to 4 people',
+            'Team work',
+            'Group tournaments',
+            'Joint analysis'
           ],
           icon: Clock,
           popular: true
@@ -82,31 +102,41 @@ const ServicesSection = () => {
       ]
     },
     tamerlan: {
-      name: 'Хасенов Тамерлан',
-      title: 'Старший тренер, КМС',
-      description: 'Идеальный баланс внимания и стоимости',
+      name: language === 'ru' ? 'Хасенов Тамерлан' : 'Khasenov Tamerlan',
+      title: language === 'ru' ? 'Старший тренер, КМС' : 'Senior Trainer, CMS',
+      description: language === 'ru' ? 'Идеальный баланс внимания и стоимости' : 'Perfect balance of attention and cost',
       services: [
         {
-          type: 'Индивидуальные занятия',
+          type: language === 'ru' ? 'Индивидуальные занятия' : 'Individual lessons',
           price: '7 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'Персональный подход',
             'Гибкий график',
             'Домашние задания',
             'Анализ партий'
+          ] : [
+            'Personal approach',
+            'Flexible schedule',
+            'Homework assignments',
+            'Game analysis'
           ],
           icon: Users
         },
         {
-          type: 'Занятия в паре',
+          type: language === 'ru' ? 'Занятия в паре' : 'Pair lessons',
           price: '5 000',
-          duration: '60 мин',
-          features: [
+          duration: language === 'ru' ? '60 мин' : '60 min',
+          features: language === 'ru' ? [
             'Занятия для 2 человек',
             'Больше внимания каждому',
             'Парные упражнения',
             'Оптимальная цена'
+          ] : [
+            'Lessons for 2 people',
+            'More attention to each',
+            'Pair exercises',
+            'Optimal price'
           ],
           icon: Clock,
           popular: true
