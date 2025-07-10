@@ -86,15 +86,15 @@ const ContactsPageContent = () => {
               <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mx-auto mb-4 border border-red-500/20">
                 <Mail className="w-6 h-6 text-red-500" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Email</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Gmail</h3>
               <p className="text-muted-foreground text-sm mb-3">Подробные вопросы</p>
-              <p className="text-foreground font-medium mb-4">📧 kazybek.chess@gmail.com</p>
+              <p className="text-foreground font-medium mb-4">📧 kazybekumbetov@gmail.com</p>
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={() => window.open('mailto:kazybek.chess@gmail.com', '_blank')}
+                onClick={() => window.open('mailto:kazybekumbetov@gmail.com', '_blank')}
               >
-                Написать email
+                Написать на Gmail
               </Button>
             </div>
           </div>
@@ -193,13 +193,13 @@ const ContactsPageContent = () => {
               </Button>
             </div>
             <div className="text-center p-4 bg-background/50 rounded-lg border border-border backdrop-blur-sm">
-              <h4 className="text-lg font-semibold text-foreground mb-2">Chess.com Тамерлан</h4>
-              <p className="text-muted-foreground mb-3">Скоро будет добавлен</p>
+              <h4 className="text-lg font-semibold text-foreground mb-2">Chess.com Амир</h4>
+              <p className="text-muted-foreground mb-3">Игровой профиль</p>
               <Button
                 variant="outline"
-                disabled
+                onClick={() => window.open('https://www.chess.com/member/TTenthOcean', '_blank')}
               >
-                🔗 Скоро
+                🔗 TTenthOcean
               </Button>
             </div>
           </div>
