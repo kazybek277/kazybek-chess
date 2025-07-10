@@ -38,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -102,6 +95,28 @@
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
+
+  /* Enhanced button visibility for light theme */
+  .light button[type="button"],
+  .light .btn {
+    @apply border-2 border-gray-300 shadow-sm;
+  }
+
+  .light button[type="button"]:hover,
+  .light .btn:hover {
+    @apply border-gray-400 shadow-md;
+  }
+
+  /* Enhanced card visibility for light theme */
+  .light .card,
+  .light [data-card] {
+    @apply border-2 border-gray-200 shadow-sm;
+  }
+
+  .light .card:hover,
+  .light [data-card]:hover {
+    @apply border-gray-300 shadow-md;
+  }
 }
 
 /* Custom utilities for mobile optimization */
@@ -145,12 +160,17 @@
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
-  /* Beautiful borders and frames */
+  /* Beautiful borders and frames - enhanced for light theme */
   .fancy-border {
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(15px);
     border: 2px solid transparent;
+  }
+
+  .light .fancy-border {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+    border: 2px solid rgba(0, 0, 0, 0.1);
   }
 
   .fancy-border::before {
@@ -169,21 +189,39 @@
     -webkit-mask-composite: xor;
   }
 
-  /* Glass effect */
+  .light .fancy-border::before {
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.2), 
+      rgba(255, 193, 7, 0.3), 
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+
+  /* Glass effect - enhanced for light theme */
   .glass-effect {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Gradient borders */
+  .light .glass-effect {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gradient borders - enhanced for light theme */
   .gradient-border {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     border: 2px solid;
     border-image: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 255, 255, 0.3)) 1;
   }
 
-  /* Beautiful section styling */
+  .light .gradient-border {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border-image: linear-gradient(135deg, rgba(255, 193, 7, 0.7), rgba(0, 0, 0, 0.2)) 1;
+  }
+
+  /* Beautiful section styling - enhanced for light theme */
   .section-fancy {
     background: linear-gradient(135deg, 
       rgba(255, 255, 255, 0.05) 0%, 
@@ -192,6 +230,16 @@
     );
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .light .section-fancy {
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.02) 0%, 
+      rgba(255, 193, 7, 0.05) 50%, 
+      rgba(0, 0, 0, 0.02) 100%
+    );
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -206,13 +254,21 @@ html {
   outline-offset: 2px;
 }
 
-/* Page-specific beautiful styling */
+/* Page-specific beautiful styling - enhanced for light theme */
 .page-container {
   min-height: 100vh;
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.02) 0%, 
     rgba(255, 193, 7, 0.01) 50%, 
     rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.light .page-container {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.01) 0%, 
+    rgba(255, 193, 7, 0.03) 50%, 
+    rgba(0, 0, 0, 0.01) 100%
   );
 }
 
@@ -231,6 +287,14 @@ html {
   background: linear-gradient(90deg, 
     transparent 0%, 
     rgba(255, 255, 255, 0.2) 50%, 
+    transparent 100%
+  );
+}
+
+.light .content-section::before {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 0, 0, 0.1) 50%, 
     transparent 100%
   );
 }

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -40,6 +41,7 @@ const ServicesPageContent = () => {
     { key: 'bot', ru: 'Бот для отработки вариантов', en: 'Bot for practicing variants' },
     { key: 'progress', ru: 'Отслеживание прогресса', en: 'Progress tracking' },
     { key: 'reminders', ru: 'Напоминание об уроке', en: 'Lesson reminders' },
+    { key: 'recording', ru: 'Запись урока', en: 'Lesson recording' },
     { key: 'parent', ru: 'Присутствие опекуна-родителя на уроке', en: 'Guardian-parent presence' },
     { key: 'selfdev', ru: 'Индивидуальный план саморазвития', en: 'Individual self-development plan' },
     { key: 'shortvideo', ru: 'Короткое видео до 1.5 мин', en: 'Short video up to 1.5 min' },
@@ -57,7 +59,7 @@ const ServicesPageContent = () => {
     { key: 'extreme', ru: 'Экстремальный (6-7 раз/нед)', en: 'Extreme (6-7 times/week)' }
   ];
 
-  // Updated plan features with corrected values
+  // Updated plan features with lesson recording for plans 4-5
   const planFeatures = {
     intensive: ['✅', '✅', '✅', '✅', '✅'],
     consultation: ['✅', '✅', '✅', '✅', '✅'],
@@ -71,6 +73,7 @@ const ServicesPageContent = () => {
     bot: ['❌', '❌', '✅', '✅', '✅'],
     progress: ['❌', '❌', '✅', '✅', '✅'],
     reminders: ['❌', '❌', '❌', '✅', '✅'],
+    recording: ['❌', '❌', '❌', '✅', '✅'],
     parent: ['❌', '❌', '❌', '✅', '✅'],
     selfdev: ['❌', '❌', '❌', '✅', '✅'],
     shortvideo: ['❌', '❌', '❌', '✅', '✅'],
@@ -83,39 +86,54 @@ const ServicesPageContent = () => {
   const trainers = [
     {
       id: 'kazybek',
-      name: 'Казыбек',
+      name: t('nav.language') === 'ru' ? 'Казыбек' : 'Kazybek',
       avatar: '👑',
       title: 'FM',
-      role: 'Главный тренер',
+      role: t('nav.language') === 'ru' ? 'Главный тренер' : 'Head Trainer',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          description: 'Максимальный эффект и полное внимание тренера',
-          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
+          title: t('services.individual'),
+          description: t('nav.language') === 'ru' ? 'Максимальный эффект и полное внимание тренера' : 'Maximum effect and full trainer attention',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.' : 'Suitable for: any level, tournament goals, personal pace. Advantages: individual plan, flexible schedule, game analysis.',
           basePriceUSD: 37.5,
           duration: '60 мин',
-          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
+          features: [
+            t('nav.language') === 'ru' ? '🎯 Персональный подход' : '🎯 Personal approach',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule',
+            t('nav.language') === 'ru' ? '📚 Домашние задания' : '📚 Homework assignments',
+            t('nav.language') === 'ru' ? '♟ Анализ партий' : '♟ Game analysis'
+          ],
           icon: Crown,
           popular: true,
           gradient: 'from-yellow-400 to-yellow-600'
         },
         {
-          title: 'Групповые занятия',
-          description: 'До 10 человек: командная динамика и турнирная практика',
-          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
+          title: t('services.group'),
+          description: t('nav.language') === 'ru' ? 'До 10 человек: командная динамика и турнирная практика' : 'Up to 10 people: team dynamics and tournament practice',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.' : 'Suitable for: beginners, schoolchildren, communication lovers. Advantages: mini-tournaments, joint analysis, accessible format.',
           basePriceUSD: 12.5,
           duration: '60 мин',
-          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          features: [
+            t('nav.language') === 'ru' ? '👥 До 10 человек' : '👥 Up to 10 people',
+            t('nav.language') === 'ru' ? '🤝 Командная работа' : '🤝 Teamwork',
+            t('nav.language') === 'ru' ? '🏆 Турниры в группе' : '🏆 Group tournaments',
+            t('nav.language') === 'ru' ? '🔍 Совместный анализ' : '🔍 Joint analysis'
+          ],
           icon: Users,
           gradient: 'from-blue-400 to-blue-600'
         },
         {
-          title: 'Занятия в паре',
-          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
-          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
+          title: t('services.pair'),
+          description: t('nav.language') === 'ru' ? 'Идеально для родителей с детьми, друзей, братьев и сестёр' : 'Perfect for parents with children, friends, siblings',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.' : 'Suitable for: shy students, family pairs. Advantages: joint learning, comfort, flexible approach.',
           basePriceUSD: 25,
           duration: '60 мин',
-          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          features: [
+            t('nav.language') === 'ru' ? '👫 Занятия вдвоем' : '👫 Lessons for two',
+            t('nav.language') === 'ru' ? '👨‍👩‍👧‍👦 Для друзей/семьи' : '👨‍👩‍👧‍👦 For friends/family',
+            t('nav.language') === 'ru' ? '🤗 Совместное обучение' : '🤗 Joint learning',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule'
+          ],
           icon: Users,
           gradient: 'from-green-400 to-green-600'
         }
@@ -123,39 +141,54 @@ const ServicesPageContent = () => {
     },
     {
       id: 'amir',
-      name: 'Амир',
+      name: t('nav.language') === 'ru' ? 'Амир' : 'Amir',
       avatar: '🎯',
-      title: 'КМС',
-      role: 'Старший тренер',
+      title: t('nav.language') === 'ru' ? 'КМС' : 'CMS',
+      role: t('nav.language') === 'ru' ? 'Старший тренер' : 'Senior Trainer',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          description: 'Максимальный эффект и полное внимание тренера',
-          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
+          title: t('services.individual'),
+          description: t('nav.language') === 'ru' ? 'Максимальный эффект и полное внимание тренера' : 'Maximum effect and full trainer attention',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.' : 'Suitable for: any level, tournament goals, personal pace. Advantages: individual plan, flexible schedule, game analysis.',
           basePriceUSD: 20,
           duration: '60 мин',
-          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
+          features: [
+            t('nav.language') === 'ru' ? '🎯 Персональный подход' : '🎯 Personal approach',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule',
+            t('nav.language') === 'ru' ? '📚 Домашние задания' : '📚 Homework assignments',
+            t('nav.language') === 'ru' ? '♟ Анализ партий' : '♟ Game analysis'
+          ],
           icon: Users,
           popular: true,
           gradient: 'from-purple-400 to-purple-600'
         },
         {
-          title: 'Групповые занятия',
-          description: 'До 10 человек: командная динамика и турнирная практика',
-          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
+          title: t('services.group'),
+          description: t('nav.language') === 'ru' ? 'До 10 человек: командная динамика и турнирная практика' : 'Up to 10 people: team dynamics and tournament practice',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.' : 'Suitable for: beginners, schoolchildren, communication lovers. Advantages: mini-tournaments, joint analysis, accessible format.',
           basePriceUSD: 7.5,
           duration: '60 мин',
-          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          features: [
+            t('nav.language') === 'ru' ? '👥 До 10 человек' : '👥 Up to 10 people',
+            t('nav.language') === 'ru' ? '🤝 Командная работа' : '🤝 Teamwork',
+            t('nav.language') === 'ru' ? '🏆 Турниры в группе' : '🏆 Group tournaments',
+            t('nav.language') === 'ru' ? '🔍 Совместный анализ' : '🔍 Joint analysis'
+          ],
           icon: Target,
           gradient: 'from-cyan-400 to-cyan-600'
         },
         {
-          title: 'Занятия в паре',
-          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
-          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
+          title: t('services.pair'),
+          description: t('nav.language') === 'ru' ? 'Идеально для родителей с детьми, друзей, братьев и сестёр' : 'Perfect for parents with children, friends, siblings',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.' : 'Suitable for: shy students, family pairs. Advantages: joint learning, comfort, flexible approach.',
           basePriceUSD: 12.5,
           duration: '60 мин',
-          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          features: [
+            t('nav.language') === 'ru' ? '👫 Занятия вдвоем' : '👫 Lessons for two',
+            t('nav.language') === 'ru' ? '👨‍👩‍👧‍👦 Для друзей/семьи' : '👨‍👩‍👧‍👦 For friends/family',
+            t('nav.language') === 'ru' ? '🤗 Совместное обучение' : '🤗 Joint learning',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule'
+          ],
           icon: Clock,
           gradient: 'from-orange-400 to-orange-600'
         }
@@ -163,39 +196,54 @@ const ServicesPageContent = () => {
     },
     {
       id: 'tamerlan',
-      name: 'Тамерлан',
+      name: t('nav.language') === 'ru' ? 'Тамерлан' : 'Tamerlan',
       avatar: '⚡',
-      title: 'КМС',
-      role: 'Старший тренер',
+      title: t('nav.language') === 'ru' ? 'КМС' : 'CMS',
+      role: t('nav.language') === 'ru' ? 'Старший тренер' : 'Senior Trainer',
       services: [
         {
-          title: 'Индивидуальные занятия',
-          description: 'Максимальный эффект и полное внимание тренера',
-          details: 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.',
+          title: t('services.individual'),
+          description: t('nav.language') === 'ru' ? 'Максимальный эффект и полное внимание тренера' : 'Maximum effect and full trainer attention',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: любой уровень, турнирные цели, персональный темп. Преимущества: индивидуальный план, гибкий график, разбор партий.' : 'Suitable for: any level, tournament goals, personal pace. Advantages: individual plan, flexible schedule, game analysis.',
           basePriceUSD: 17.5,
           duration: '60 мин',
-          features: ['🎯 Персональный подход', '⏰ Гибкий график', '📚 Домашние задания', '♟ Анализ партий'],
+          features: [
+            t('nav.language') === 'ru' ? '🎯 Персональный подход' : '🎯 Personal approach',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule',
+            t('nav.language') === 'ru' ? '📚 Домашние задания' : '📚 Homework assignments',
+            t('nav.language') === 'ru' ? '♟ Анализ партий' : '♟ Game analysis'
+          ],
           icon: Users,
           popular: true,
           gradient: 'from-red-400 to-red-600'
         },
         {
-          title: 'Групповые занятия',
-          description: 'До 10 человек: командная динамика и турнирная практика',
-          details: 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.',
+          title: t('services.group'),
+          description: t('nav.language') === 'ru' ? 'До 10 человек: командная динамика и турнирная практика' : 'Up to 10 people: team dynamics and tournament practice',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: новички, школьники, любители общения. Преимущества: мини-турниры, совместный анализ, доступный формат.' : 'Suitable for: beginners, schoolchildren, communication lovers. Advantages: mini-tournaments, joint analysis, accessible format.',
           basePriceUSD: 6.25,
           duration: '60 мин',
-          features: ['👥 До 10 человек', '🤝 Командная работа', '🏆 Турниры в группе', '🔍 Совместный анализ'],
+          features: [
+            t('nav.language') === 'ru' ? '👥 До 10 человек' : '👥 Up to 10 people',
+            t('nav.language') === 'ru' ? '🤝 Командная работа' : '🤝 Teamwork',
+            t('nav.language') === 'ru' ? '🏆 Турниры в группе' : '🏆 Group tournaments',
+            t('nav.language') === 'ru' ? '🔍 Совместный анализ' : '🔍 Joint analysis'
+          ],
           icon: Target,
           gradient: 'from-indigo-400 to-indigo-600'
         },
         {
-          title: 'Занятия в паре',
-          description: 'Идеально для родителей с детьми, друзей, братьев и сестёр',
-          details: 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.',
+          title: t('services.pair'),
+          description: t('nav.language') === 'ru' ? 'Идеально для родителей с детьми, друзей, братьев и сестёр' : 'Perfect for parents with children, friends, siblings',
+          details: t('nav.language') === 'ru' ? 'Кому подойдёт: стеснительные ученики, семейные пары. Преимущества: совместное обучение, комфорт, гибкий подход.' : 'Suitable for: shy students, family pairs. Advantages: joint learning, comfort, flexible approach.',
           basePriceUSD: 10,
           duration: '60 мин',
-          features: ['👫 Занятия вдвоем', '👨‍👩‍👧‍👦 Для друзей/семьи', '🤗 Совместное обучение', '⏰ Гибкий график'],
+          features: [
+            t('nav.language') === 'ru' ? '👫 Занятия вдвоем' : '👫 Lessons for two',
+            t('nav.language') === 'ru' ? '👨‍👩‍👧‍👦 Для друзей/семьи' : '👨‍👩‍👧‍👦 For friends/family',
+            t('nav.language') === 'ru' ? '🤗 Совместное обучение' : '🤗 Joint learning',
+            t('nav.language') === 'ru' ? '⏰ Гибкий график' : '⏰ Flexible schedule'
+          ],
           icon: Clock,
           gradient: 'from-pink-400 to-pink-600'
         }
@@ -250,15 +298,15 @@ const ServicesPageContent = () => {
         <Tabs defaultValue="kazybek" className="w-full">
           {/* Enhanced Trainer Selector */}
           <div className="flex justify-center mb-8">
-            <TabsList className="grid w-full max-w-md grid-cols-3 h-auto p-2 bg-gradient-to-r from-muted/50 to-muted/30">
+            <TabsList className="grid w-full max-w-md grid-cols-3 h-auto p-2 bg-gradient-to-r from-muted/50 to-muted/30 border border-border">
               {trainers.map((trainer) => (
                 <TabsTrigger
                   key={trainer.id}
                   value={trainer.id}
-                  className={`flex flex-col items-center p-4 space-y-2 transition-all duration-200 hover:scale-105 relative overflow-hidden ${
+                  className={`flex flex-col items-center p-4 space-y-2 transition-all duration-200 hover:scale-105 relative overflow-hidden border ${
                     trainer.id === 'kazybek' 
-                      ? 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-600 data-[state=active]:text-black data-[state=active]:shadow-lg' 
-                      : 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-300 data-[state=active]:to-gray-500 data-[state=active]:text-black data-[state=active]:shadow-lg'
+                      ? 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-600 data-[state=active]:text-black data-[state=active]:shadow-lg data-[state=active]:border-yellow-300' 
+                      : 'data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-300 data-[state=active]:to-gray-500 data-[state=active]:text-black data-[state=active]:shadow-lg data-[state=active]:border-gray-400'
                   }`}
                 >
                   {trainer.id === 'kazybek' && <Sparkles className="absolute top-1 right-1 w-3 h-3 text-yellow-300" />}
@@ -281,7 +329,7 @@ const ServicesPageContent = () => {
                   <Card key={index} className="group border-2 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden bg-gradient-to-br from-background to-muted/20">
                     {service.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                        <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                        <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
                           ⭐ {t('nav.language') === 'ru' ? 'Популярно' : 'Popular'}
                         </span>
                       </div>
@@ -345,12 +393,12 @@ const ServicesPageContent = () => {
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-gradient-to-r from-muted/60 to-muted/40">
-                        <TableHead className="w-[200px] font-bold text-foreground">
+                      <TableRow className="bg-gradient-to-r from-muted/60 to-muted/40 border-b border-border">
+                        <TableHead className="w-[200px] font-bold text-foreground border-r border-border">
                           {t('nav.language') === 'ru' ? 'Услуги / Количество занятий' : 'Services / Number of lessons'}
                         </TableHead>
                         {plans.map((plan) => (
-                          <TableHead key={plan.key} className="text-center min-w-[120px] font-bold text-foreground">
+                          <TableHead key={plan.key} className="text-center min-w-[120px] font-bold text-foreground border-r border-border last:border-r-0">
                             {t('nav.language') === 'ru' ? plan.ru : plan.en}
                           </TableHead>
                         ))}
@@ -358,12 +406,12 @@ const ServicesPageContent = () => {
                     </TableHeader>
                     <TableBody>
                       {serviceFeatures.map((feature, index) => (
-                        <TableRow key={feature.key} className={`${index % 2 === 0 ? 'bg-muted/10' : 'bg-background/50'} hover:bg-muted/20 transition-colors`}>
-                          <TableCell className="font-medium text-foreground">
+                        <TableRow key={feature.key} className={`${index % 2 === 0 ? 'bg-muted/10' : 'bg-background/50'} hover:bg-muted/20 transition-colors border-b border-border`}>
+                          <TableCell className="font-medium text-foreground border-r border-border">
                             {t('nav.language') === 'ru' ? feature.ru : feature.en}
                           </TableCell>
                           {planFeatures[feature.key].map((value, cellIndex) => (
-                            <TableCell key={cellIndex} className="text-center">
+                            <TableCell key={cellIndex} className="text-center border-r border-border last:border-r-0">
                               {value === '✅' ? (
                                 <div className="flex justify-center">
                                   <Check className="w-5 h-5 text-green-500 drop-shadow-sm" />
@@ -391,13 +439,13 @@ const ServicesPageContent = () => {
                 
                 {/* Enhanced Legend */}
                 <div className="flex justify-center gap-8 mt-6 text-sm">
-                  <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg">
+                  <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg border border-green-200 dark:border-green-800">
                     <Check className="w-4 h-4 text-green-500" />
                     <span className="text-green-700 dark:text-green-300 font-medium">
                       {t('nav.language') === 'ru' ? 'Услуга включена' : 'Service included'}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                  <div className="flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg border border-red-200 dark:border-red-800">
                     <X className="w-4 h-4 text-red-500" />
                     <span className="text-red-700 dark:text-red-300 font-medium">
                       {t('nav.language') === 'ru' ? 'Услуга не включена' : 'Service not included'}

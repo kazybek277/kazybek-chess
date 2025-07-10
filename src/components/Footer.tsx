@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -26,43 +27,42 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              FM Казыбек из Казахстана предлагает профессиональное обучение шахмат онлайн для детей и взрослых. 
-              Шахматные уроки онлайн с международным мастером FIDE.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Быстрые ссылки</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">{t('footer.links')}</h3>
             <div className="space-y-2">
               <div>
                 <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  О нас
+                  {t('nav.about')}
                 </a>
               </div>
               <div>
                 <a href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Услуги
+                  {t('nav.services')}
                 </a>
               </div>
               <div>
                 <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Тренера
+                  {t('nav.language') === 'ru' ? 'Тренера' : 'Trainers'}
                 </a>
               </div>
               <div>
                 <a href="/requirements" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Занятия
+                  {t('nav.requirements')}
                 </a>
               </div>
               <div>
                 <a href="/reviews" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Отзывы
+                  {t('nav.reviews')}
                 </a>
               </div>
               <div>
                 <a href="/contacts" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Контакты
+                  {t('nav.contacts')}
                 </a>
               </div>
             </div>
@@ -70,10 +70,10 @@ const Footer = () => {
 
           {/* Contacts */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Контакты</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">{t('footer.contact')}</h3>
             <div className="space-y-3">
               <div className="text-sm">
-                <p className="text-muted-foreground">kazybekumbetov@gmail.com</p>
+                <p className="text-muted-foreground">kazybek.chess@gmail.com</p>
               </div>
               <div className="text-sm">
                 <p className="text-muted-foreground">WhatsApp: +7 (775) 999-36-44</p>
@@ -82,7 +82,9 @@ const Footer = () => {
                 <p className="text-muted-foreground">Telegram: @ChessBeast_1</p>
               </div>
               <div className="text-sm">
-                <p className="text-muted-foreground">Часы работы: 24/7</p>
+                <p className="text-muted-foreground">
+                  {t('nav.language') === 'ru' ? 'Часы работы: 24/7' : 'Working hours: 24/7'}
+                </p>
               </div>
             </div>
           </div>
@@ -91,7 +93,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Umbetov Kazybek Chess. Все права защищены.
+            {t('footer.rights')}
           </p>
         </div>
       </div>
